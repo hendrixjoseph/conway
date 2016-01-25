@@ -23,8 +23,9 @@ public class Grid {
         }
     }
 
-    public void tick() {
+    public Map<Coordinate, Cell> tick() {
         Map<Coordinate, Cell> deadAdjacentCells = new HashMap<>();
+        Map<Coordinate, Cell> changedCells = new HashMap<>();
 
         for(Map.Entry<Coordinate, Cell> entry : aliveCells.entrySet()) {
             for(Coordinate neighbor : entry.getKey().getNeighbors()) {
@@ -44,22 +45,27 @@ public class Grid {
 
         for(Map.Entry<Coordinate, Cell> entry : aliveCells.entrySet()) {
             Cell aliveCell = entry.getValue();
+            Coordinate coord = entry.getKey();
 
             aliveCell.tick();
 
             if(!aliveCell.isAlive()) {
-                // remove alive cell
+                changedCells.put(coord,aliveCell);
+                // TODO: remove alive cell
             }
         }
 
         for(Map.Entry<Coordinate, Cell> entry : deadAdjacentCells.entrySet()) {
             Cell deadCell = entry.getValue();
+            Coordinate coord = entry.getKey();
 
             deadCell.tick();
 
             if(deadCell.isAlive()) {
-                // add newly alive cell
+                changedCells.put(coord,deadCell);
             }
         }
+        
+        return changedCells;
     }
 }
