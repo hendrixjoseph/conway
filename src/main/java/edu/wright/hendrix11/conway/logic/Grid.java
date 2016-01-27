@@ -9,6 +9,8 @@ import java.util.Map;
  */
 public class Grid {
     private Map<Coordinate, Cell> aliveCells = new HashMap<>();
+    private Map<Coordinate, Cell> deadAdjacentCells;
+    private Map<Coordinate, Cell> changedCells;
 
     public Grid() {
     }
@@ -24,8 +26,32 @@ public class Grid {
     }
 
     public Map<Coordinate, Cell> tick() {
-        Map<Coordinate, Cell> deadAdjacentCells = new HashMap<>();
-        Map<Coordinate, Cell> changedCells = new HashMap<>();
+        changedCells = new HashMap<>();
+
+        countLivingNeighbors();
+        tickCells(aliveCells);
+        tickCells(deadAdjacentCells);
+
+        return changedCells;
+    }
+
+    private void tickCells(Map<Coordinate, Cell> cells) {
+        for(Map.Entry<Coordinate, Cell> entry : cells.entrySet()) {
+            Cell cell = entry.getValue();
+            Coordinate coord = entry.getKey();
+
+            boolean aliveBefore = cell.isAlive();
+
+            cell.tick();
+
+            if(cell.isAlive() != aliveBefore) {
+                changedCells.put(coord,cell);
+            }
+        }
+    }
+
+    private void countLivingNeighbors() {
+        deadAdjacentCells = new HashMap<>();
 
         for(Map.Entry<Coordinate, Cell> entry : aliveCells.entrySet()) {
             for(Coordinate neighbor : entry.getKey().getNeighbors()) {
@@ -42,30 +68,5 @@ public class Grid {
                 }
             }
         }
-
-        for(Map.Entry<Coordinate, Cell> entry : aliveCells.entrySet()) {
-            Cell aliveCell = entry.getValue();
-            Coordinate coord = entry.getKey();
-
-            aliveCell.tick();
-
-            if(!aliveCell.isAlive()) {
-                changedCells.put(coord,aliveCell);
-                // TODO: remove alive cell
-            }
-        }
-
-        for(Map.Entry<Coordinate, Cell> entry : deadAdjacentCells.entrySet()) {
-            Cell deadCell = entry.getValue();
-            Coordinate coord = entry.getKey();
-
-            deadCell.tick();
-
-            if(deadCell.isAlive()) {
-                changedCells.put(coord,deadCell);
-            }
-        }
-        
-        return changedCells;
     }
 }
