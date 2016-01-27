@@ -7,7 +7,14 @@ import javafx.scene.layout.Pane;
  */
 public class CellPane extends Pane {
     public CellPane() {
-        setStyle("-fx-border-color: black;");
+        //setStyle("-fx-border-color: black;");
         setPrefSize(100.0f, 100.0f);
+
+        this.setOnMouseClicked(e -> click());
+    }
+
+    private void click() {
+        System.err.println("click!");
+        setStyle("-fx-background-color: black; -fx-border-color: white;");
     }
 }
