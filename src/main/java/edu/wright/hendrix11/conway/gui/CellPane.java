@@ -14,7 +14,6 @@ public class CellPane extends Pane {
     }
 
     private void click() {
-        System.err.println("click!");
         setStyle("-fx-background-color: black; -fx-border-color: white;");
     }
 }
