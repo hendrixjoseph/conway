@@ -17,8 +17,8 @@ public class Cell {
         this.alive = alive;
     }
     
-    public List<Cell> getNeighbors() {
-        List<Cell> neighbors = new ArrayList<>();
+    public Set<Cell> getNeighbors() {
+        Set<Cell> neighbors = new HashSet<>();
         
         neighbors.add(northernCell);
         neighbors.add(southernCell);
