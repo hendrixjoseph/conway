@@ -30,7 +30,7 @@ public class Bottom extends HBox {
 
         Label statusLabel = new Label("This is the status label.");
 
-        this.getChildren().addAll(cb,tick,start,clear,speed,statusLabel);
+        this.getChildren().addAll(cb, tick, start, clear, speed, statusLabel);
     }
 
     private void click() {

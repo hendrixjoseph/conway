@@ -1,6 +1,7 @@
 package edu.wright.hendrix11.conway.gui;
 
 import edu.wright.hendrix11.conway.logic.Cell;
+import edu.wright.hendrix11.conway.logic.Grid;
 import javafx.scene.layout.Pane;
 
 /**
@@ -8,9 +9,10 @@ import javafx.scene.layout.Pane;
  */
 public class CellPane extends Pane {
 
-    private Cell cell = new Cell();
+    private Cell cell;
 
-    public CellPane() {
+    public CellPane(Grid grid) {
+        cell = new Cell(grid);
         setPrefSize(100.0f, 100.0f);
         setStyle();
     }
@@ -21,7 +23,7 @@ public class CellPane extends Pane {
     }
 
     public void setStyle() {
-        if(cell.isAlive()) {
+        if (cell.isAlive()) {
             setStyle("-fx-background-color: black; -fx-border-color: black;");
         } else {
             assert !cell.isAlive();

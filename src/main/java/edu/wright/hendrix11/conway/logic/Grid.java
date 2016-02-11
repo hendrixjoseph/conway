@@ -1,8 +1,6 @@
 package edu.wright.hendrix11.conway.logic;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,57 +27,50 @@ public class Grid {
 
         toggleCells(toggleTheseCells);
     }
-    
-    private void toggleCells(Set<Cell> toggleTheseCells) {
-        for(Cell cell : toggleTheseCells) {
-            cell.toggle();
 
-            if(cell.isAlive()) {
-                aliveCells.add(cell);
-            } else {
-                assert !cell.isAlive();
-                aliveCells.remove(cell);
-            }
+    private void toggleCells(Set<Cell> toggleTheseCells) {
+        for (Cell cell : toggleTheseCells) {
+            cell.toggle();
         }
     }
-    
+
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
-        for(Cell cell : aliveCells) {
-            for(Cell neighbor : cell.getNeighbors()) {
-                if(neighbor != null && !neighbor.isAlive()) {
-                    if(checkDeadCell(neighbor)) {
+        for (Cell cell : aliveCells) {
+            for (Cell neighbor : cell.getNeighbors()) {
+                if (neighbor != null && !neighbor.isAlive()) {
+                    if (checkDeadCell(neighbor)) {
                         toggleTheseCells.add(neighbor);
                     }
-                } else if(neighbor == null) {
+                } else if (neighbor == null) {
                     // Todo: this case
                 }
             }
         }
     }
-    
+
     private boolean checkDeadCell(Cell deadCell) {
         assert !deadCell.isAlive();
-        
+
         int numberOfLivingNeighbors = deadCell.getNumberLivingNeighbors();
-        
+
         assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
-        
+
         return numberOfLivingNeighbors == 3;
     }
-    
+
     private boolean checkLivingCell(Cell livingCell) {
         assert livingCell.isAlive();
-        
+
         int numberOfLivingNeighbors = livingCell.getNumberLivingNeighbors();
-        
+
         assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
-        
+
         return numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3;
     }
-    
+
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
-        for(Cell cell : aliveCells) {
-            if(checkLivingCell(cell)) {
+        for (Cell cell : aliveCells) {
+            if (checkLivingCell(cell)) {
                 toggleTheseCells.add(cell);
             }
         }

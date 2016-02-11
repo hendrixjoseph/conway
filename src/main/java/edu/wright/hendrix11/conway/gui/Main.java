@@ -2,14 +2,17 @@ package edu.wright.hendrix11.conway.gui;
 
 import edu.wright.hendrix11.conway.logic.Grid;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
 
 public class Main extends Application {
 
     private Grid gameGrid = new Grid();
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -26,9 +29,5 @@ public class Main extends Application {
         primaryStage.setTitle("CS7140 - Conway's Game of Life");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

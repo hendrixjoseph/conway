@@ -1,5 +1,8 @@
 package edu.wright.hendrix11.conway.logic;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author Joe Hendrix
  */
@@ -10,27 +13,31 @@ public class Cell {
     private Cell southernCell;
     private Cell easternCell;
     private Cell westernCell;
-    
+
     public Cell(Grid grid) {
         this.grid = grid;
     }
 
     public Set<Cell> getNeighbors() {
         Set<Cell> neighbors = new HashSet<>();
-        
+
         neighbors.add(northernCell);
         neighbors.add(southernCell);
         neighbors.add(easternCell);
         neighbors.add(westernCell);
-        
+
         neighbors.add(getNorthEasternCell());
         neighbors.add(getNorthWesternCell());
         neighbors.add(getSouthEasternCell());
         neighbors.add(getSouthWesternCell());
-        
+
         assert neighbors.size() == 8;
-        
+
         return neighbors;
+    }
+
+    public Cell getEasternCell() {
+        return easternCell;
     }
 
     public void setEasternCell(Cell easternCell) {
@@ -38,9 +45,17 @@ public class Cell {
         this.easternCell = easternCell;
     }
 
+    public Cell getNorthernCell() {
+        return northernCell;
+    }
+
     public void setNorthernCell(Cell northernCell) {
         northernCell.southernCell = this;
         this.northernCell = northernCell;
+    }
+
+    public Cell getSouthernCell() {
+        return southernCell;
     }
 
     public void setSouthernCell(Cell southernCell) {
@@ -48,79 +63,67 @@ public class Cell {
         this.southernCell = southernCell;
     }
 
+    public Cell getWesternCell() {
+        return westernCell;
+    }
+
     public void setWesternCell(Cell westernCell) {
         westernCell.easternCell = this;
         this.westernCell = westernCell;
     }
 
-    public Cell getEasternCell() {
-        return easternCell;
-    }
-
-    public Cell getNorthernCell() {
-        return northernCell;
-    }
-
-    public Cell getSouthernCell() {
-        return southernCell;
-    }
-
-    public Cell getWesternCell() {
-        return westernCell;
-    }
-    
     public Cell getNorthEasternCell() {
         Cell northEasternCell = null;
-        
-        if(northernCell != null) {
+
+        if (northernCell != null) {
             northEasternCell = northernCell.easternCell;
-        } else if(easternCell != null) {
+        } else if (easternCell != null) {
             northEasternCell = easternCell.northernCell;
         }
-        
+
         return northEasternCell;
     }
-    
+
     public Cell getNorthWesternCell() {
         Cell northWesternCell = null;
-        
-        if(northernCell != null) {
+
+        if (northernCell != null) {
             northWesternCell = northernCell.westernCell;
-        } else if(westernCell != null) {
+        } else if (westernCell != null) {
             northWesternCell = westernCell.northernCell;
         }
-        
+
         return northWesternCell;
     }
-    
+
     public Cell getSouthEasternCell() {
         Cell southEasternCell = null;
-        
-        if(southernCell != null) {
+
+        if (southernCell != null) {
             southEasternCell = southernCell.easternCell;
-        } else if(easternCell != null) {
+        } else if (easternCell != null) {
             southEasternCell = easternCell.southernCell;
         }
-        
+
         return southEasternCell;
     }
-    
+
     public Cell getSouthWesternCell() {
         Cell southWesternCell = null;
-        
-        if(southernCell != null) {
+
+        if (southernCell != null) {
             southWesternCell = southernCell.westernCell;
-        } else if(westernCell != null) {
+        } else if (westernCell != null) {
             southWesternCell = westernCell.southernCell;
         }
-        
+
         return southWesternCell;
     }
 
     public void toggle() {
         alive = !alive;
-        
-        if(alive) {
+
+        if (alive) {
             grid.addLivingCell(this);
         } else {
             grid.removeDeadCell(this);
@@ -133,15 +136,15 @@ public class Cell {
 
     public int getNumberLivingNeighbors() {
         int count = 0;
-        
-        for(Cell neighbor : getNeighbors()) {
-            if(neighbor != null && neighbor.isAlive()) {
+
+        for (Cell neighbor : getNeighbors()) {
+            if (neighbor != null && neighbor.isAlive()) {
                 count++;
             }
         }
-        
+
         assert count >= 0 && count <= 8;
-        
+
         return count;
     }
 

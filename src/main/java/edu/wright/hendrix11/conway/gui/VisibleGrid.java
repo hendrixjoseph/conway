@@ -1,9 +1,7 @@
 package edu.wright.hendrix11.conway.gui;
 
 import edu.wright.hendrix11.conway.logic.Grid;
-import javafx.scene.control.Cell;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 /**
  * @author Joe Hendrix
@@ -16,10 +14,14 @@ public class VisibleGrid extends GridPane {
     public VisibleGrid(Grid gameGrid, int rows, int columns) {
         this.gameGrid = gameGrid;
 
-        createCells(rows, columns);
+        createCells(rows, columns, gameGrid);
     }
-    
-    private void createCells(int rows, int columns) {
+
+    public VisibleGrid(Grid gameGrid, int size) {
+        this(gameGrid, size, size);
+    }
+
+    private void createCells(int rows, int columns, Grid gameGrid) {
         cells = new CellPane[rows * columns];
 
         for (int i = 0; i < rows; i++) {
@@ -32,38 +34,29 @@ public class VisibleGrid extends GridPane {
                 CellPane newCell = new CellPane(gameGrid);
                 newCell.setOnMouseClicked(e -> clickCell(newCell));
 
-                setWesternCell(newCell, i, j);
-                setNorthernCell(newCell, i, j);
+                if (i > 0) {
+                    int west = j + (i - 1) * columns;
+
+                    assert west < pos;
+                    //assert pos % rows == i;
+                    assert west % columns == j;
+
+                    newCell.getCell().setWesternCell(cells[west].getCell());
+                }
+
+                if (j > 0) {
+                    int north = (j - 1) + i * columns;
+
+                    assert north < pos;
+                    //assert pos % rows == i;
+                    assert north % columns == j - 1;
+
+                    newCell.getCell().setNorthernCell(cells[north].getCell());
+                }
 
                 this.add(cells[pos] = newCell, j, i);
             }
         }
-    }
-    
-    private int setNorthernCell(Cell newCell, int i, int j) {
-        if(j > 0) {
-            int north = (j - 1) + i * columns;
-            assert north < pos;
-            //assert pos % rows == i;
-            assert north % columns == j - 1;
-
-            newCell.getCell().setNorthernCell(cells[north].getCell());
-        }
-    }
-    
-    private int setWesternCell(Cell newCell, int i, int j) {
-        if(i > 0) {
-            int west = j + (i - 1) * columns;
-            assert west < pos;
-            //assert pos % rows == i;
-            assert west % columns == j;
-
-            newCell.getCell().setWesternCell(cells[west].getCell());
-        }
-    }
-
-    public VisibleGrid(Grid gameGrid, int size) {
-        this(gameGrid, size, size);
     }
 
     private void clickCell(CellPane cellPane) {
@@ -73,7 +66,7 @@ public class VisibleGrid extends GridPane {
     public void tick() {
         gameGrid.tick();
 
-        for(CellPane cellPane : cells) {
+        for (CellPane cellPane : cells) {
             cellPane.setStyle();
         }
     }
