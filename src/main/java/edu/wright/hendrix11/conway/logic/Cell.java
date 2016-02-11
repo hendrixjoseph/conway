@@ -12,10 +12,6 @@ public class Cell {
 
     public Cell() {
     }
-
-    public Cell(boolean alive) {
-        this.alive = alive;
-    }
     
     public Set<Cell> getNeighbors() {
         Set<Cell> neighbors = new HashSet<>();
