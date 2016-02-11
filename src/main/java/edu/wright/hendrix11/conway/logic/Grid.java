@@ -1,9 +1,9 @@
 package edu.wright.hendrix11.conway.logic;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Joe Hendrix
@@ -46,31 +46,20 @@ public class Grid {
         Set<Cell> newbornCells = new HashSet<>();
         
         for(Cell cell : aliveCells) {
-            checkDeadCell(cell.getNorthernCell(), newbornCells);
-            checkDeadCell(cell.getSouthernCell(), newbornCells);
-            checkDeadCell(cell.getEasternCell(), newbornCells);
-            checkDeadCell(cell.getWesthernCell(), newbornCells);
-            
-            checkDeadCell(cell.getNorthEasternCell(), newbornCells);
-            checkDeadCell(cell.getNorthWesternCell(), newbornCells);
-            checkDeadCell(cell.getSouthEasternCell(), newbornCells);
-            checkDeadCell(cell.getSouthWesternCell(), newbornCells);
+            for(Cell neighbor : cell.getNeighbors()) {
+                if(neighbor != null && !neighbor.isAlive()) {
+                    checkDeadCell(cell.getNorthernCell(), newbornCells);
+                } else if(neighbor == null) {
+                    // Todo: this case
+                }
+            }
         }
         
         toggleTheseCells.addAll(newbornCells);
     }
     
     private void checkDeadCell(Cell deadCell, Set<Cell> newbornCells) {
-        if(deadCell != null && deadCell.isAlive()) {
-            return;   
-        }
-        
-        assert deadCell == null || !deadCell.isAlive();
-        
-        if(deadCell == null) {
-            // Todo: handle this case
-            return;
-        }
+        assert !deadCell.isAlive();
         
         int numberOfLivingNeighbors = deadCell.getNumberLivingNeighbors();
         
