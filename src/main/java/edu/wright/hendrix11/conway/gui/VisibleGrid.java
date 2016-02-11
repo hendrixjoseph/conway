@@ -25,7 +25,7 @@ public class VisibleGrid extends GridPane {
                 assert pos < cells.length;
                 assert pos % columns == j;
 
-                CellPane newCell = new CellPane();
+                CellPane newCell = new CellPane(gameGrid);
                 newCell.setOnMouseClicked(e -> clickCell(newCell));
 
                 if(i > 0) {
@@ -57,13 +57,6 @@ public class VisibleGrid extends GridPane {
 
     private void clickCell(CellPane cellPane) {
         cellPane.toggle();
-
-        if(cellPane.getCell().isAlive()) {
-            gameGrid.addLivingCell(cellPane.getCell());
-        } else {
-            assert !cellPane.getCell().isAlive();
-            gameGrid.removeDeadCell(cellPane.getCell());
-        }
     }
 
     public void tick() {
