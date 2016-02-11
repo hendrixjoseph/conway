@@ -52,6 +52,54 @@ public class Cell {
     public Cell getWesternCell() {
         return westernCell;
     }
+    
+    public Cell getNorthEasternCell() {
+        Cell northEasternCell = null;
+        
+        if(northernCell != null) {
+            northEasternCell = northernCell.easternCell;
+        } else if(easternCell != null) {
+            northEasternCell = easternCell.northernCell;
+        }
+        
+        return northEasternCell;
+    }
+    
+    public Cell getNorthWesternCell() {
+        Cell northWesternCell = null;
+        
+        if(northernCell != null) {
+            northWesternCell = northernCell.westernCell;
+        } else if(westernCell != null) {
+            northWesternCell = westernCell.northernCell;
+        }
+        
+        return northWesternCell;
+    }
+    
+    public Cell getSouthEasternCell() {
+        Cell southEasternCell = null;
+        
+        if(southernCell != null) {
+            southEasternCell = southernCell.easternCell;
+        } else if(easternCell != null) {
+            southEasternCell = easternCell.southernCell;
+        }
+        
+        return southEasternCell;
+    }
+    
+    public Cell getSouthWesternCell() {
+        Cell southWesternCell = null;
+        
+        if(southernCell != null) {
+            southWesternCell = southernCell.westernCell;
+        } else if(westernCell != null) {
+            southWesternCell = westernCell.southernCell;
+        }
+        
+        return southWesternCell;
+    }
 
     public void toggle() {
         alive = !alive;
