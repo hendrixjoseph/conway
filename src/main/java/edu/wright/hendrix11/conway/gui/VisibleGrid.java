@@ -16,6 +16,10 @@ public class VisibleGrid extends GridPane {
     public VisibleGrid(Grid gameGrid, int rows, int columns) {
         this.gameGrid = gameGrid;
 
+        createCells(rows, columns);
+    }
+    
+    private void createCells(int rows, int columns) {
         cells = new CellPane[rows * columns];
 
         for (int i = 0; i < rows; i++) {
@@ -28,26 +32,33 @@ public class VisibleGrid extends GridPane {
                 CellPane newCell = new CellPane(gameGrid);
                 newCell.setOnMouseClicked(e -> clickCell(newCell));
 
-                if(i > 0) {
-                    int west = j + (i - 1) * columns;
-                    assert west < pos;
-                    //assert pos % rows == i;
-                    assert west % columns == j;
-
-                    newCell.getCell().setWesternCell(cells[west].getCell());
-                }
-
-                if(j > 0) {
-                    int north = (j - 1) + i * columns;
-                    assert north < pos;
-                    //assert pos % rows == i;
-                    assert north % columns == j - 1;
-
-                    newCell.getCell().setNorthernCell(cells[north].getCell());
-                }
+                setWesternCell(newCell, i, j);
+                setNorthernCell(newCell, i, j);
 
                 this.add(cells[pos] = newCell, j, i);
             }
+        }
+    }
+    
+    private int setNorthernCell(Cell newCell, int i, int j) {
+        if(j > 0) {
+            int north = (j - 1) + i * columns;
+            assert north < pos;
+            //assert pos % rows == i;
+            assert north % columns == j - 1;
+
+            newCell.getCell().setNorthernCell(cells[north].getCell());
+        }
+    }
+    
+    private int setWesternCell(Cell newCell, int i, int j) {
+        if(i > 0) {
+            int west = j + (i - 1) * columns;
+            assert west < pos;
+            //assert pos % rows == i;
+            assert west % columns == j;
+
+            newCell.getCell().setWesternCell(cells[west].getCell());
         }
     }
 
