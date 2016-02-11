@@ -10,9 +10,6 @@ public class Cell {
     private Cell easternCell;
     private Cell westernCell;
 
-    public Cell() {
-    }
-    
     public Set<Cell> getNeighbors() {
         Set<Cell> neighbors = new HashSet<>();
         
