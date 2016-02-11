@@ -16,6 +16,24 @@ public class Cell {
     public Cell(boolean alive) {
         this.alive = alive;
     }
+    
+    public List<Cell> getNeighbors() {
+        List<Cell> neighbors = new ArrayList<>();
+        
+        neighbors.add(northernCell);
+        neighbors.add(southernCell);
+        neighbors.add(easternCell);
+        neighbors.add(westernCell);
+        
+        neighbors.add(getNorthEasternCell());
+        neighbors.add(getNorthWesternCell());
+        neighbors.add(getSouthEasternCell());
+        neighbors.add(getSouthWesternCell());
+        
+        assert neighbors.size() == 8;
+        
+        return neighbors;
+    }
 
     public void setEasternCell(Cell easternCell) {
         easternCell.westernCell = this;
@@ -112,53 +130,14 @@ public class Cell {
     public int getNumberLivingNeighbors() {
         int count = 0;
         
-        count += countCardinalLivingNeighbors();
-        count += countDiagonalLivingNeighbors();
-        
-        return count;
-    }
-    
-    private int countDiagonalLivingNeighbors() {
-        int count = 0;
-        
-        if(getNorthEasternCell() != null && getNorthEasternCell().isAlive()) {
-            count++;
-        }
-
-        if(getNorthWesternCell() != null && getNorthWesternCell().isAlive()) {
-            count++;
-        }
-
-        if(getSouthEasternCell() != null && getSouthEasternCell().isAlive()) {
-            count++;
-        }
-
-        if(getSouthWesternCell() != null && getSouthWesternCell().isAlive()) {
-            count++;
+        for(Cell neighbor : getNeighbors()) {
+            if(neighbor != null && neighbor.isAlive()) {
+                count++;
+            }
         }
         
-        return count;
-    }
-    
-    private int countCardinalLivingNeighbors() {
-        int count = 0;
-
-        if(northernCell != null && northernCell.isAlive()) {
-            count++;
-        }
-
-        if(southernCell != null && southernCell.isAlive()) {
-            count++;
-        }
-
-        if(easternCell != null && easternCell.isAlive()) {
-            count++;
-        }
-
-        if(westernCell != null && westernCell.isAlive()) {
-            count++;
-        }
-
+        assert count >= 0 && count <= 8;
+        
         return count;
     }
 
