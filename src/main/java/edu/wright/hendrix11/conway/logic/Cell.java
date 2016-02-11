@@ -63,6 +63,78 @@ public class Cell {
 
     public int getNumberLivingNeighbors() {
         int count = 0;
+        
+        count += countCardinalLivingNeighbors();
+        count += countDiagonalLivingNeighbors();
+        
+        return count;
+    }
+    
+    private int countNorthernDiagonalLivingNeighbors() {
+        int count = 0;
+        
+        if(northernCell != null) {
+            
+            if(northernCell.easternCell != null && northernCell.easternCell.isAlive()) {
+                count++;
+            }
+            
+            if(northernCell.westernCell != null && northernCell.westernCell.isAlive()) {
+                count++;
+            }
+            
+        } else {
+            
+            if(easternCell != null && easternCell.northernCell != null && easternCell.northernCell.isAlive()) {
+                count++;
+            }
+            
+            if(westernCell != null && westernCell.northernCell != null && westernCell.northernCell.isAlive()) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    private int countSouthernDiagonalLivingNeighbors() {
+        int count = 0;
+        
+        if(southernCell != null) {
+            
+            if(southernCell.easternCell != null && southernCell.easternCell.isAlive()) {
+                count++;
+            }
+            
+            if(southernCell.westernCell != null && southernCell.westernCell.isAlive()) {
+                count++;
+            }
+            
+        } else {
+            
+            if(easternCell != null && easternCell.southernCell != null && easternCell.southernCell.isAlive()) {
+                count++;
+            }
+            
+            if(westernCell != null && westernCell.southernCell != null && westernCell.southernCell.isAlive()) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    private int countDiagonalLivingNeighbors() {
+        int count = 0;
+        
+        count += countNorthernDiagonalLivingNeighbors;
+        count += countSouthernDiagonalLivingNeighbors;
+        
+        return count;
+    }
+    
+    private int countCardinalLivingNeighbors() {
+        int count = 0;
 
         if(northernCell != null && northernCell.isAlive()) {
             count++;
