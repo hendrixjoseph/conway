@@ -10,20 +10,30 @@ import javafx.scene.layout.HBox;
  * @author Joe Hendrix
  */
 public class Bottom extends HBox {
-    public Bottom() {
+
+    private VisibleGrid visibleGrid;
+
+    public Bottom(VisibleGrid visibleGrid) {
         super(10);
+
+        this.visibleGrid = visibleGrid;
 
         ChoiceBox cb = new ChoiceBox();
         cb.getItems().addAll("item1", "item2", "item3");
 
-        Button next = new Button("Next");
         Button start = new Button("Start");
         Button clear = new Button("Clear");
+        Button tick = new Button("Tick");
+        tick.setOnMouseClicked(event -> click());
 
         Slider speed = new Slider(0, 10, 0.5);
 
         Label statusLabel = new Label("This is the status label.");
 
-        this.getChildren().addAll(cb,next,start,clear,speed,statusLabel);
+        this.getChildren().addAll(cb,tick,start,clear,speed,statusLabel);
+    }
+
+    private void click() {
+        visibleGrid.tick();
     }
 }

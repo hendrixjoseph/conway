@@ -4,44 +4,92 @@ package edu.wright.hendrix11.conway.logic;
  * @author Joe Hendrix
  */
 public class Cell {
-    private Integer numAliveNeighbors;
-    private boolean alive;
+    private boolean alive = false;
+    private Cell northernCell;
+    private Cell southernCell;
+    private Cell easternCell;
+    private Cell westernCell;
 
     public Cell() {
-        alive = true;
     }
 
     public Cell(boolean alive) {
         this.alive = alive;
     }
 
-    public void incrementAliveNeighbors() {
-        if(numAliveNeighbors == null) {
-            numAliveNeighbors = 1;
-        } else {
-            numAliveNeighbors++;
-        }
+    public void setEasternCell(Cell easternCell) {
+        easternCell.westernCell = this;
+        this.easternCell = easternCell;
+    }
+
+    public void setNorthernCell(Cell northernCell) {
+        northernCell.southernCell = this;
+        this.northernCell = northernCell;
+    }
+
+    public void setSouthernCell(Cell southernCell) {
+        southernCell.northernCell = this;
+        this.southernCell = southernCell;
+    }
+
+    public void setWesternCell(Cell westernCell) {
+        westernCell.easternCell = this;
+        this.westernCell = westernCell;
+    }
+
+    public Cell getEasternCell() {
+        return easternCell;
+    }
+
+    public Cell getNorthernCell() {
+        return northernCell;
+    }
+
+    public Cell getSouthernCell() {
+        return southernCell;
+    }
+
+    public Cell getWesternCell() {
+        return westernCell;
+    }
+
+    public void toggle() {
+        alive = !alive;
     }
 
     public boolean isAlive() {
         return alive;
     }
 
-    public void tick() {
-        if(numAliveNeighbors == null) {
-            throw new NullPointerException("Alive neighbors not set!");
+    public int getNumberLivingNeighbors() {
+        int count = 0;
+
+        if(northernCell != null && northernCell.isAlive()) {
+            count++;
         }
 
-        if(alive) {
-            if(numAliveNeighbors < 2 || numAliveNeighbors > 3) {
-                alive = false;
-            }
-        } else {
-            if(numAliveNeighbors == 3) {
-                alive = true;
-            }
+        if(southernCell != null && southernCell.isAlive()) {
+            count++;
         }
 
-        numAliveNeighbors = null;
+        if(easternCell != null && easternCell.isAlive()) {
+            count++;
+        }
+
+        if(westernCell != null && westernCell.isAlive()) {
+            count++;
+        }
+
+        return count;
+    }
+
+    @Override
+    public int hashCode() {
+        return alive ? 1 : 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return this == o;
     }
 }
