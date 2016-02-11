@@ -24,14 +24,12 @@ public class Grid {
     public void tick() {
         List<Cell> toggleTheseCells = new ArrayList<>();
 
-        for(Cell cell : aliveCells) {
-            int numberOfLivingNeighbors = cell.getNumberLivingNeighbors();
+        checkLivingCells(toggleTheseCells);
 
-            if(numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3) {
-                toggleTheseCells.add(cell);
-            }
-        }
-
+        toggleCells(toggleTheseCells);
+    }
+    
+    private void toggleCells(List<Cell> toggleTheseCells) {
         for(Cell cell : toggleTheseCells) {
             cell.toggle();
 
@@ -42,7 +40,16 @@ public class Grid {
                 aliveCells.remove(cell);
             }
         }
+    }
+    
+    private void checkLivingCells(List<Cell> toggleTheseCells) {
+        for(Cell cell : aliveCells) {
+            int numberOfLivingNeighbors = cell.getNumberLivingNeighbors();
 
+            if(numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3) {
+                toggleTheseCells.add(cell);
+            }
+        }
     }
 
 }
