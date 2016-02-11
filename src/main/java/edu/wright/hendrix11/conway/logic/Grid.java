@@ -9,7 +9,7 @@ import java.util.Set;
  * @author Joe Hendrix
  */
 public class Grid {
-    private List<Cell> aliveCells = new ArrayList<>();
+    private Set<Cell> aliveCells = new HashSet<>();
 
     public void addLivingCell(Cell cell) {
         assert cell.isAlive();
@@ -22,14 +22,15 @@ public class Grid {
     }
 
     public void tick() {
-        List<Cell> toggleTheseCells = new ArrayList<>();
+        Set<Cell> toggleTheseCells = new HashSet<>();
 
         checkLivingCells(toggleTheseCells);
+        checkAdjacentDeadCells(toggleTheseCells);
 
         toggleCells(toggleTheseCells);
     }
     
-    private void toggleCells(List<Cell> toggleTheseCells) {
+    private void toggleCells(Set<Cell> toggleTheseCells) {
         for(Cell cell : toggleTheseCells) {
             cell.toggle();
 
@@ -42,50 +43,45 @@ public class Grid {
         }
     }
     
-    private void checkAdjacentDeadCells(List<Cell> toggleTheseCells) {
-        Set<Cell> newbornCells = new HashSet<>();
-        
+    private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
         for(Cell cell : aliveCells) {
             for(Cell neighbor : cell.getNeighbors()) {
                 if(neighbor != null && !neighbor.isAlive()) {
-                    checkDeadCell(cell.getNorthernCell(), newbornCells);
+                    if(checkDeadCell(neighbor)) {
+                        toggleTheseCells.add(neighbor);
+                    }
                 } else if(neighbor == null) {
                     // Todo: this case
                 }
             }
         }
-        
-        toggleTheseCells.addAll(newbornCells);
     }
     
-    private void checkDeadCell(Cell deadCell, Set<Cell> newbornCells) {
+    private boolean checkDeadCell(Cell deadCell) {
         assert !deadCell.isAlive();
         
         int numberOfLivingNeighbors = deadCell.getNumberLivingNeighbors();
         
         assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
         
-        if(numberOfLivingNeighbors == 3) {
-            newbornCells.add(cell.getNorthernCell());
-        }
+        return numberOfLivingNeighbors == 3;
     }
     
-    private void checkLivingCell(Cell livingCell, List<Cell> toggleTheseCells) {
+    private boolean checkLivingCell(Cell livingCell) {
         assert livingCell.isAlive();
         
         int numberOfLivingNeighbors = livingCell.getNumberLivingNeighbors();
         
         assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
         
-        if(numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3) {
-            toggleTheseCells.add(livingCell);
-        }
+        return numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3;
     }
     
-    private void checkLivingCells(List<Cell> toggleTheseCells) {
+    private void checkLivingCells(Set<Cell> toggleTheseCells) {
         for(Cell cell : aliveCells) {
-            checkLivingCell(cell, toggleTheseCells);
+            if(checkLivingCell(cell)) {
+                toggleTheseCells.add(cell);
+            }
         }
     }
-
 }
