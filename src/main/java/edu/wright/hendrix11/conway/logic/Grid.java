@@ -42,11 +42,57 @@ public class Grid {
         }
     }
     
+    private void checkAdjacentDeadCells(List<Cell> toggleTheseCells) {
+        Set<Cell> newbornCells = new HashSet<>();
+        
+        for(Cell cell : aliveCells) {
+            if(cell.getNorthernCell() != null && !cell.getNorthernCell().isAlive()) {
+                if(checkDeadCell(cell.getNorthernCell())) {
+                    newbornCells.add(cell.getNorthernCell());
+                }
+            }
+            
+            if(cell.getSouthernCell() != null && !cell.getSouthernCell().isAlive()) {
+                if(checkDeadCell(cell.getSouthernCell())) {
+                    newbornCells.add(cell.getSouthernCell());
+                }
+            }
+            
+            if(cell.getEasternCell() != null && !cell.getEasternCell().isAlive()) {
+                if(checkDeadCell(cell.getEasternCell())) {
+                    newbornCells.add(cell.getEasternCell());
+                }
+            }
+            
+            if(cell.getWesternCell() != null && !cell.getWesternCell().isAlive()) {
+                if(checkDeadCell(cell.getWesternCell())) {
+                    newbornCells.add(cell.getWesternCell());
+                }
+            }
+        }
+    }
+    
+    private boolean checkDeadCell(Cell deadCell) {
+        assert !deadCell.isAlive();
+        
+        int numberOfLivingNeighbors = deadCell.getNumberLivingNeighbors();
+        
+        assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
+        return numberOfLivingNeighbors == 3;
+    }
+    
+    private boolean checkLivingCell(Cell livingCell) {
+        assert livingCell.isAlive();
+        
+        int numberOfLivingNeighbors = livingCell.getNumberLivingNeighbors();
+        
+        assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
+        return numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3;
+    }
+    
     private void checkLivingCells(List<Cell> toggleTheseCells) {
         for(Cell cell : aliveCells) {
-            int numberOfLivingNeighbors = cell.getNumberLivingNeighbors();
-
-            if(numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3) {
+            if(checkLivingCell(cell)) {
                 toggleTheseCells.add(cell);
             }
         }
