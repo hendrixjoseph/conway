@@ -5,7 +5,7 @@ package edu.wright.hendrix11.conway.logic;
  */
 public class Cell {
     private Grid grid;
-    //private boolean alive = false;
+    private boolean alive = false;
     private Cell northernCell;
     private Cell southernCell;
     private Cell easternCell;
@@ -119,6 +119,12 @@ public class Cell {
 
     public void toggle() {
         alive = !alive;
+        
+        if(alive) {
+            grid.addLivingCell(this);
+        } else {
+            grid.removeDeadCell(this);
+        }
     }
 
     public boolean isAlive() {
