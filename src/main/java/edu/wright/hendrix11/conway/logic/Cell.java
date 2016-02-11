@@ -4,11 +4,16 @@ package edu.wright.hendrix11.conway.logic;
  * @author Joe Hendrix
  */
 public class Cell {
-    private boolean alive = false;
+    private Grid grid;
+    //private boolean alive = false;
     private Cell northernCell;
     private Cell southernCell;
     private Cell easternCell;
     private Cell westernCell;
+    
+    public Cell(Grid grid) {
+        this.grid = grid;
+    }
 
     public Set<Cell> getNeighbors() {
         Set<Cell> neighbors = new HashSet<>();
