@@ -150,7 +150,7 @@ public class Cell {
 
     @Override
     public int hashCode() {
-        return alive ? 1 : 0;
+        return super.hashCode();
     }
 
     @Override
