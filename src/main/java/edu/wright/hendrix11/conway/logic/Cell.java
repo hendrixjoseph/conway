@@ -1,7 +1,8 @@
 package edu.wright.hendrix11.conway.logic;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Joe Hendrix
@@ -18,8 +19,54 @@ public class Cell {
         this.grid = grid;
     }
 
-    public Set<Cell> getNeighbors() {
-        Set<Cell> neighbors = new HashSet<>();
+    private boolean classInv() {
+        boolean invariant = true;
+
+        if (northernCell != null && !Objects.equals(northernCell.southernCell, this)) {
+            invariant = false;
+        }
+
+        if (southernCell != null && !Objects.equals(southernCell.northernCell, this)) {
+            invariant = false;
+        }
+
+        if (easternCell != null && !Objects.equals(easternCell.westernCell, this)) {
+            invariant = false;
+        }
+
+        if (westernCell != null && !Objects.equals(westernCell.easternCell, this)) {
+            invariant = false;
+        }
+
+        if (northernCell != null && easternCell != null) {
+            if (!Objects.equals(northernCell.easternCell, easternCell.northernCell)) {
+                invariant = false;
+            }
+        }
+
+        if (northernCell != null && westernCell != null) {
+            if (!Objects.equals(northernCell.westernCell, westernCell.northernCell)) {
+                invariant = false;
+            }
+        }
+
+        if (southernCell != null && easternCell != null) {
+            if (!Objects.equals(southernCell.easternCell, easternCell.southernCell)) {
+                invariant = false;
+            }
+        }
+
+        if (southernCell != null && westernCell != null) {
+            if (!Objects.equals(southernCell.westernCell, southernCell.westernCell)) {
+                invariant = false;
+            }
+        }
+
+        return invariant;
+    }
+
+    public List<Cell> getNeighbors() {
+        List<Cell> neighbors = new ArrayList<>();
 
         neighbors.add(northernCell);
         neighbors.add(southernCell);
@@ -36,35 +83,9 @@ public class Cell {
         return neighbors;
     }
 
-    public Cell getEasternCell() {
-        return easternCell;
-    }
-
-    public void setEasternCell(Cell easternCell) {
-        easternCell.westernCell = this;
-        this.easternCell = easternCell;
-    }
-
-    public Cell getNorthernCell() {
-        return northernCell;
-    }
-
     public void setNorthernCell(Cell northernCell) {
         northernCell.southernCell = this;
         this.northernCell = northernCell;
-    }
-
-    public Cell getSouthernCell() {
-        return southernCell;
-    }
-
-    public void setSouthernCell(Cell southernCell) {
-        southernCell.northernCell = this;
-        this.southernCell = southernCell;
-    }
-
-    public Cell getWesternCell() {
-        return westernCell;
     }
 
     public void setWesternCell(Cell westernCell) {

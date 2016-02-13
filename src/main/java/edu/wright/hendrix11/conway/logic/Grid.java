@@ -9,23 +9,37 @@ import java.util.Set;
 public class Grid {
     private Set<Cell> aliveCells = new HashSet<>();
 
+    private boolean classInv() {
+        for(Cell cell : aliveCells) {
+            if(!cell.isAlive()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void addLivingCell(Cell cell) {
         assert cell.isAlive();
         aliveCells.add(cell);
+        assert classInv();
     }
 
     public void removeDeadCell(Cell cell) {
         assert !cell.isAlive();
         aliveCells.remove(cell);
+        assert classInv();
     }
 
     public void tick() {
+        assert classInv();
         Set<Cell> toggleTheseCells = new HashSet<>();
 
         checkLivingCells(toggleTheseCells);
         checkAdjacentDeadCells(toggleTheseCells);
 
         toggleCells(toggleTheseCells);
+        assert classInv();
     }
 
     private void toggleCells(Set<Cell> toggleTheseCells) {

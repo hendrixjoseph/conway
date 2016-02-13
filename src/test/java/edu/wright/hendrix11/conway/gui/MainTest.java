@@ -2,8 +2,6 @@ package edu.wright.hendrix11.conway.gui;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author Joe Hendrix
  */
