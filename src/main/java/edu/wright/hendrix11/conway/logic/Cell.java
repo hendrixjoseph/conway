@@ -68,7 +68,7 @@ public class Cell {
     public List<Cell> getNeighbors() {
         List<Cell> neighbors = new ArrayList<>();
 
-        neighbors.add(northernCell);
+        neighbors.add(getNorthernCell());
         neighbors.add(southernCell);
         neighbors.add(easternCell);
         neighbors.add(westernCell);
@@ -93,7 +93,15 @@ public class Cell {
         this.westernCell = westernCell;
     }
 
-    public Cell getNorthEasternCell() {
+    private Cell getNorthernCell() {
+        if(northernCell == null) {
+            grid.expandNorth(this);
+        }
+
+        return northernCell;
+    }
+
+    private Cell getNorthEasternCell() {
         Cell northEasternCell = null;
 
         if (northernCell != null) {
@@ -105,7 +113,7 @@ public class Cell {
         return northEasternCell;
     }
 
-    public Cell getNorthWesternCell() {
+    private Cell getNorthWesternCell() {
         Cell northWesternCell = null;
 
         if (northernCell != null) {
@@ -117,7 +125,7 @@ public class Cell {
         return northWesternCell;
     }
 
-    public Cell getSouthEasternCell() {
+    private Cell getSouthEasternCell() {
         Cell southEasternCell = null;
 
         if (southernCell != null) {
@@ -129,7 +137,7 @@ public class Cell {
         return southEasternCell;
     }
 
-    public Cell getSouthWesternCell() {
+    private Cell getSouthWesternCell() {
         Cell southWesternCell = null;
 
         if (southernCell != null) {
