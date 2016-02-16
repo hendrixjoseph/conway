@@ -92,13 +92,35 @@ public class Cell {
         westernCell.easternCell = this;
         this.westernCell = westernCell;
     }
+    
+    public void setEasternCell(Cell easternCell) {
+        easternCell.westernCell = this;
+        this.easternCell = easternCell;
+    }
 
-    private Cell getNorthernCell() {
-        if(northernCell == null) {
-            grid.expandNorth(this);
-        }
+    public void setSouthernCell(Cell southernCell) {
+        southernCell.northernCell = this;
+        this.southernCell = southernCell;
+    }
 
+    public Cell getNorthernCell() {
         return northernCell;
+    }
+    
+    public void growNorth() {
+        if(northernCell == null) {
+            setNorthernCell(new Cell());
+            
+            if(easternCell != null) {
+                northernCell.setEasternCell(new Cell());
+                easternCell.setNorthernCell(northernCell.easternCell);
+            }
+            
+            if(westernCell != null) {
+                northernCell.setWesternCell(new Cell());
+                westernCell.setNorthernCell(northernCell.westernCell);
+            }
+        }
     }
 
     private Cell getNorthEasternCell() {
