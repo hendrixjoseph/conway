@@ -11,8 +11,8 @@ public class CellPane extends Pane {
 
     private Cell cell;
 
-    public CellPane(Grid grid) {
-        cell = new Cell(grid);
+    public CellPane(Cell cell) {
+        this.cell = cell;
         setPrefSize(100.0f, 100.0f);
         setStyle();
     }

@@ -1,8 +1,10 @@
 package edu.wright.hendrix11.conway.logic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @author Joe Hendrix
@@ -65,40 +67,50 @@ public class Cell {
         return invariant;
     }
 
-    public List<Cell> getNeighbors() {
-        List<Cell> neighbors = new ArrayList<>();
+    public Set<Cell> getNeighbors() {
+        grow();
 
-        neighbors.add(getNorthernCell());
+        Set<Cell> neighbors = new HashSet<>();
+
+        neighbors.add(northernCell);
         neighbors.add(southernCell);
         neighbors.add(easternCell);
         neighbors.add(westernCell);
 
-        neighbors.add(getNorthEasternCell());
-        neighbors.add(getNorthWesternCell());
-        neighbors.add(getSouthEasternCell());
-        neighbors.add(getSouthWesternCell());
+        neighbors.add(northernCell.easternCell);
+        neighbors.add(northernCell.westernCell);
+        neighbors.add(southernCell.easternCell);
+        neighbors.add(southernCell.westernCell);
 
         assert neighbors.size() == 8;
+        assert classInv();
 
         return neighbors;
     }
 
-    public void setNorthernCell(Cell northernCell) {
+    private void grow() {
+        growNorth();
+        growSouth();
+        growEast();
+        growWest();
+    }
+
+    private void setNorthernCell(Cell northernCell) {
         northernCell.southernCell = this;
         this.northernCell = northernCell;
     }
 
-    public void setWesternCell(Cell westernCell) {
+    private void setWesternCell(Cell westernCell) {
         westernCell.easternCell = this;
         this.westernCell = westernCell;
     }
-    
-    public void setEasternCell(Cell easternCell) {
+
+    private void setEasternCell(Cell easternCell) {
         easternCell.westernCell = this;
         this.easternCell = easternCell;
     }
 
-    public void setSouthernCell(Cell southernCell) {
+    private void setSouthernCell(Cell southernCell) {
         southernCell.northernCell = this;
         this.southernCell = southernCell;
     }
@@ -106,69 +118,89 @@ public class Cell {
     public Cell getNorthernCell() {
         return northernCell;
     }
-    
+
+    public Cell getEasternCell() {
+        return easternCell;
+    }
+
+    public Cell getSouthernCell() {
+        return southernCell;
+    }
+
+    public Cell getWesternCell() {
+        return westernCell;
+    }
+
     public void growNorth() {
         if(northernCell == null) {
-            setNorthernCell(new Cell());
-            
+            setNorthernCell(new Cell(grid));
+
             if(easternCell != null) {
-                northernCell.setEasternCell(new Cell());
+                northernCell.setEasternCell(new Cell(grid));
                 easternCell.setNorthernCell(northernCell.easternCell);
             }
-            
+
             if(westernCell != null) {
-                northernCell.setWesternCell(new Cell());
+                northernCell.setWesternCell(new Cell(grid));
                 westernCell.setNorthernCell(northernCell.westernCell);
             }
         }
+
+        assert classInv();
     }
 
-    private Cell getNorthEasternCell() {
-        Cell northEasternCell = null;
+    public void growSouth() {
+        if(southernCell == null) {
+            setSouthernCell(new Cell(grid));
 
-        if (northernCell != null) {
-            northEasternCell = northernCell.easternCell;
-        } else if (easternCell != null) {
-            northEasternCell = easternCell.northernCell;
+            if(easternCell != null) {
+                southernCell.setEasternCell(new Cell(grid));
+                easternCell.setSouthernCell(southernCell.easternCell);
+            }
+
+            if(westernCell != null) {
+                southernCell.setWesternCell(new Cell(grid));
+                westernCell.setSouthernCell(southernCell.westernCell);
+            }
         }
 
-        return northEasternCell;
+        assert classInv();
     }
 
-    private Cell getNorthWesternCell() {
-        Cell northWesternCell = null;
+    public void growEast() {
+        if(easternCell == null) {
+            setEasternCell(new Cell(grid));
 
-        if (northernCell != null) {
-            northWesternCell = northernCell.westernCell;
-        } else if (westernCell != null) {
-            northWesternCell = westernCell.northernCell;
+            if(northernCell != null) {
+                easternCell.setNorthernCell(new Cell(grid));
+                northernCell.setEasternCell(easternCell.northernCell);
+            }
+
+            if(southernCell != null) {
+                easternCell.setSouthernCell(new Cell(grid));
+                southernCell.setEasternCell(easternCell.southernCell);
+            }
         }
 
-        return northWesternCell;
+        assert classInv();
     }
 
-    private Cell getSouthEasternCell() {
-        Cell southEasternCell = null;
+    public void growWest() {
+        if(westernCell == null) {
+            setWesternCell(new Cell(grid));
 
-        if (southernCell != null) {
-            southEasternCell = southernCell.easternCell;
-        } else if (easternCell != null) {
-            southEasternCell = easternCell.southernCell;
+            if(northernCell != null) {
+                westernCell.setNorthernCell(new Cell(grid));
+                northernCell.setWesternCell(westernCell.northernCell);
+            }
+
+            if(southernCell != null) {
+                westernCell.setSouthernCell(new Cell(grid));
+                southernCell.setWesternCell(westernCell.southernCell);
+            }
         }
 
-        return southEasternCell;
-    }
-
-    private Cell getSouthWesternCell() {
-        Cell southWesternCell = null;
-
-        if (southernCell != null) {
-            southWesternCell = southernCell.westernCell;
-        } else if (westernCell != null) {
-            southWesternCell = westernCell.southernCell;
-        }
-
-        return southWesternCell;
+        assert classInv();
     }
 
     public void toggle() {

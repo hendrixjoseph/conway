@@ -1,5 +1,6 @@
 package edu.wright.hendrix11.conway.gui;
 
+import edu.wright.hendrix11.conway.logic.Cell;
 import edu.wright.hendrix11.conway.logic.Grid;
 import javafx.scene.layout.GridPane;
 
@@ -8,7 +9,7 @@ import javafx.scene.layout.GridPane;
  */
 public class VisibleGrid extends GridPane {
 
-    private CellPane[] cells;
+    private CellPane[][] cells;
     private Grid gameGrid;
 
     public VisibleGrid(Grid gameGrid, int rows, int columns) {
@@ -22,39 +23,20 @@ public class VisibleGrid extends GridPane {
     }
 
     private void createCells(int rows, int columns, Grid gameGrid) {
-        cells = new CellPane[rows * columns];
+        cells = new CellPane[rows][columns];
+
+        Cell outerloopCell = new Cell(gameGrid);
 
         for (int i = 0; i < rows; i++) {
+
+            Cell innerloopCell = outerloopCell;
+
             for (int j = 0; j < columns; j++) {
-                int pos = j + i * columns;
 
-                assert pos < cells.length;
-                assert pos % columns == j;
+                CellPane newCellPane = new CellPane(innerloopCell);
+                newCellPane.setOnMouseClicked(e -> clickCell(newCellPane));
 
-                CellPane newCell = new CellPane(gameGrid);
-                newCell.setOnMouseClicked(e -> clickCell(newCell));
-
-                if (i > 0) {
-                    int west = j + (i - 1) * columns;
-
-                    assert west < pos;
-                    //assert pos % rows == i;
-                    assert west % columns == j;
-
-                    newCell.getCell().setWesternCell(cells[west].getCell());
-                }
-
-                if (j > 0) {
-                    int north = (j - 1) + i * columns;
-
-                    assert north < pos;
-                    //assert pos % rows == i;
-                    assert north % columns == j - 1;
-
-                    newCell.getCell().setNorthernCell(cells[north].getCell());
-                }
-
-                this.add(cells[pos] = newCell, j, i);
+                this.add(cells[i][j] = newCellPane, j, i);
             }
         }
     }
@@ -66,8 +48,10 @@ public class VisibleGrid extends GridPane {
     public void tick() {
         gameGrid.tick();
 
-        for (CellPane cellPane : cells) {
-            cellPane.setStyle();
+        for(CellPane[] c : cells) {
+            for (CellPane cell : c) {
+                cell.setStyle();
+            }
         }
     }
 }

@@ -19,10 +19,6 @@ public class Grid {
         return true;
     }
 
-    public void expandNorth(Cell sampleCell) {
-        
-    }
-
     public void addLivingCell(Cell cell) {
         assert cell.isAlive();
         aliveCells.add(cell);
