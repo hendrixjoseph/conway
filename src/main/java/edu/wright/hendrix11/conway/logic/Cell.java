@@ -1,5 +1,7 @@
 package edu.wright.hendrix11.conway.logic;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.Set;
  * @author Joe Hendrix
  */
 public class Cell {
+    private static final Logger LOG = Logger.getLogger(Cell.class.getName());
+    
     private Grid grid;
     private boolean alive = false;
     private Cell northernCell;
@@ -25,43 +29,43 @@ public class Cell {
         boolean invariant = true;
 
         if (northernCell != null && !Objects.equals(northernCell.southernCell, this)) {
+            LOG.log(Level.SEVERE, "northernCell.southernCell != this");
             invariant = false;
         }
 
         if (southernCell != null && !Objects.equals(southernCell.northernCell, this)) {
+            LOG.log(Level.SEVERE, "southernCell.northernCell != this");
             invariant = false;
         }
 
         if (easternCell != null && !Objects.equals(easternCell.westernCell, this)) {
+            LOG.log(Level.SEVERE, "easternCell.westernCell != this");
             invariant = false;
         }
 
         if (westernCell != null && !Objects.equals(westernCell.easternCell, this)) {
+            LOG.log(Level.SEVERE, "westernCell.easternCell != this");
             invariant = false;
         }
 
-        if (northernCell != null && easternCell != null) {
-            if (!Objects.equals(northernCell.easternCell, easternCell.northernCell)) {
-                invariant = false;
-            }
+        if (northernCell != null && easternCell != null && !Objects.equals(northernCell.easternCell, easternCell.northernCell)) {
+            LOG.log(Level.SEVERE, "northernCell.easternCell != easternCell.northernCell");
+            invariant = false;
         }
 
-        if (northernCell != null && westernCell != null) {
-            if (!Objects.equals(northernCell.westernCell, westernCell.northernCell)) {
-                invariant = false;
-            }
+        if (northernCell != null && westernCell != null && !Objects.equals(northernCell.westernCell, westernCell.northernCell)) {
+            LOG.log(Level.SEVERE, "northernCell.westernCell != westernCell.northernCell");
+            invariant = false;
         }
 
-        if (southernCell != null && easternCell != null) {
-            if (!Objects.equals(southernCell.easternCell, easternCell.southernCell)) {
-                invariant = false;
-            }
+        if (southernCell != null && easternCell != null && !Objects.equals(southernCell.easternCell, easternCell.southernCell)) {
+            LOG.log(Level.SEVERE, "southernCell.easternCell != easternCell.southernCell");
+            invariant = false;
         }
 
-        if (southernCell != null && westernCell != null) {
-            if (!Objects.equals(southernCell.westernCell, southernCell.westernCell)) {
-                invariant = false;
-            }
+        if (southernCell != null && westernCell != null && !Objects.equals(southernCell.westernCell, southernCell.westernCell)) {
+            LOG.log(Level.SEVERE, "southernCell.westernCell, southernCell.westernCell");
+            invariant = false;
         }
 
         return invariant;
@@ -80,15 +84,24 @@ public class Cell {
         neighbors.add(southernCell.easternCell);
         neighbors.add(southernCell.westernCell);
 
-        assert neighbors.size() == 8;
-        assert northernCell != null;
-        assert westernCell != null;
-        assert easternCell != null;
-        assert southernCell != null;
-        assert northernCell.easternCell != null;
-        assert northernCell.westernCell != null;
-        assert southernCell.easternCell != null;
-        assert southernCell.westernCell != null;
+        assert neighbors.size() == 8
+            && northernCell != null
+            && westernCell != null
+            && easternCell != null
+            && southernCell != null
+            && northernCell.easternCell != null
+            && northernCell.westernCell != null
+            && southernCell.easternCell != null
+            && southernCell.westernCell != null
+            : "neighbors.size(): " + neighbors.size()
+             + "\tnorthernCell: " northernCell
+             + "\twesternCell: " westernCell
+             + "\teasternCell: " easternCell
+             + "\tsouthernCell: " southernCell
+             + "\tnorthernCell.easternCell: " northernCell.easternCell
+             + "\tnorthernCell.westernCell: " northernCell.westernCell
+             + "\tsouthernCell.easternCell: " southernCell.easternCell
+             + "\tsouthernCell.westernCell: " southernCell.westernCell;
         assert classInv();
 
         return neighbors;
