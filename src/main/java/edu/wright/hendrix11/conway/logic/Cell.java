@@ -132,13 +132,21 @@ public class Cell {
             setNorthernCell(new Cell(grid));
 
             if(easternCell != null) {
-                northernCell.setEasternCell(new Cell(grid));
-                easternCell.setNorthernCell(northernCell.easternCell);
+                if(easternCell.northernCell != null) {
+                    northernCell.setEasternCell(easternCell.northernCell);    
+                } else {
+                    northernCell.setEasternCell(new Cell(grid));
+                    easternCell.setNorthernCell(northernCell.easternCell);
+                }
             }
 
             if(westernCell != null) {
-                northernCell.setWesternCell(new Cell(grid));
-                westernCell.setNorthernCell(northernCell.westernCell);
+                if(westernCell.northernCell != null) {
+                    northernCell.setWesternCell(westernCell.northernCell);
+                } else {
+                    northernCell.setWesternCell(new Cell(grid));
+                    westernCell.setNorthernCell(northernCell.westernCell);
+                }
             }
         }
 
@@ -152,13 +160,21 @@ public class Cell {
             setSouthernCell(new Cell(grid));
 
             if(easternCell != null) {
-                southernCell.setEasternCell(new Cell(grid));
-                easternCell.setSouthernCell(southernCell.easternCell);
+                if(easternCell.southernCell != null) {
+                    southernCell.setEasternCell(easternCell.southernCell);
+                } else {
+                    southernCell.setEasternCell(new Cell(grid));
+                    easternCell.setSouthernCell(southernCell.easternCell);
+                }
             }
 
             if(westernCell != null) {
-                southernCell.setWesternCell(new Cell(grid));
-                westernCell.setSouthernCell(southernCell.westernCell);
+                if(westernCell.southernCell != null) {
+                    southernCell.setWesternCell(westernCell.southernCell);
+                } else {
+                    southernCell.setWesternCell(new Cell(grid));
+                    westernCell.setSouthernCell(southernCell.westernCell);
+                }
             }
         }
 
@@ -172,13 +188,21 @@ public class Cell {
             setEasternCell(new Cell(grid));
 
             if(northernCell != null) {
-                easternCell.setNorthernCell(new Cell(grid));
-                northernCell.setEasternCell(easternCell.northernCell);
+                if(northernCell.easternCell != null) {
+                    easternCell.setNorthernCell(northernCell.easternCell);
+                } else {
+                    easternCell.setNorthernCell(new Cell(grid));
+                    northernCell.setEasternCell(easternCell.northernCell);
+                }
             }
 
             if(southernCell != null) {
-                easternCell.setSouthernCell(new Cell(grid));
-                southernCell.setEasternCell(easternCell.southernCell);
+                if(southernCell.easternCell != null) {
+                    easternCell.setSouthernCell(southernCell.easternCell);
+                } else {
+                    easternCell.setSouthernCell(new Cell(grid));
+                    southernCell.setEasternCell(easternCell.southernCell);
+                }
             }
         }
 
@@ -192,13 +216,21 @@ public class Cell {
             setWesternCell(new Cell(grid));
 
             if(northernCell != null) {
-                westernCell.setNorthernCell(new Cell(grid));
-                northernCell.setWesternCell(westernCell.northernCell);
+                if(northernCell.westernCell != null) {
+                    westernCell.setNorthernCell(northernCell.westernCell);
+                } else {
+                    westernCell.setNorthernCell(new Cell(grid));
+                    northernCell.setWesternCell(westernCell.northernCell);
+                }
             }
 
             if(southernCell != null) {
-                westernCell.setSouthernCell(new Cell(grid));
-                southernCell.setWesternCell(westernCell.southernCell);
+                if(southernCell.westernCell != null) {
+                    westernCell.setSouthernCell(southernCell.westernCell);
+                } else {
+                    westernCell.setSouthernCell(new Cell(grid));
+                    southernCell.setWesternCell(westernCell.southernCell);
+                }
             }
         }
 
