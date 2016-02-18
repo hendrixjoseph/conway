@@ -14,7 +14,9 @@ public class CellTest {
 
     @Before
     public void before() {
-        cell = new Cell(new Grid());
+        if(cell == null) {
+            cell = new Cell(new Grid());
+        }
     }
 
     @Test
