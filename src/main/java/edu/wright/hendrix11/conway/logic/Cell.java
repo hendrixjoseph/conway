@@ -68,14 +68,12 @@ public class Cell {
     }
 
     public Set<Cell> getNeighbors() {
-        grow();
-
         Set<Cell> neighbors = new HashSet<>();
 
-        neighbors.add(northernCell);
-        neighbors.add(southernCell);
-        neighbors.add(easternCell);
-        neighbors.add(westernCell);
+        neighbors.add(getNorthernCell());
+        neighbors.add(getSouthernCell());
+        neighbors.add(getEasternCell());
+        neighbors.add(getWesternCell());
 
         neighbors.add(northernCell.easternCell);
         neighbors.add(northernCell.westernCell);
@@ -83,16 +81,17 @@ public class Cell {
         neighbors.add(southernCell.westernCell);
 
         assert neighbors.size() == 8;
+        assert northernCell != null;
+        assert westernCell != null;
+        assert easternCell != null;
+        assert southernCell != null;
+        assert northernCell.easternCell != null;
+        assert northernCell.westernCell != null;
+        assert southernCell.easternCell != null;
+        assert southernCell.westernCell != null;
         assert classInv();
 
         return neighbors;
-    }
-
-    private void grow() {
-        growNorth();
-        growSouth();
-        growEast();
-        growWest();
     }
 
     private void setNorthernCell(Cell northernCell) {
@@ -116,22 +115,6 @@ public class Cell {
     }
 
     public Cell getNorthernCell() {
-        return northernCell;
-    }
-
-    public Cell getEasternCell() {
-        return easternCell;
-    }
-
-    public Cell getSouthernCell() {
-        return southernCell;
-    }
-
-    public Cell getWesternCell() {
-        return westernCell;
-    }
-
-    public void growNorth() {
         if(northernCell == null) {
             setNorthernCell(new Cell(grid));
 
@@ -147,9 +130,11 @@ public class Cell {
         }
 
         assert classInv();
+
+        return northernCell;
     }
 
-    public void growSouth() {
+    public Cell getSouthernCell() {
         if(southernCell == null) {
             setSouthernCell(new Cell(grid));
 
@@ -165,9 +150,11 @@ public class Cell {
         }
 
         assert classInv();
+
+        return southernCell;
     }
 
-    public void growEast() {
+    public Cell getEasternCell() {
         if(easternCell == null) {
             setEasternCell(new Cell(grid));
 
@@ -183,9 +170,11 @@ public class Cell {
         }
 
         assert classInv();
+
+        return easternCell;
     }
 
-    public void growWest() {
+    public Cell getWesternCell() {
         if(westernCell == null) {
             setWesternCell(new Cell(grid));
 
@@ -201,6 +190,8 @@ public class Cell {
         }
 
         assert classInv();
+
+        return westernCell;
     }
 
     public void toggle() {
@@ -221,7 +212,7 @@ public class Cell {
         int count = 0;
 
         for (Cell neighbor : getNeighbors()) {
-            if (neighbor != null && neighbor.isAlive()) {
+            if (neighbor.isAlive()) {
                 count++;
             }
         }

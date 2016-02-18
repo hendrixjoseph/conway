@@ -38,11 +38,9 @@ public class VisibleGrid extends GridPane {
 
                 this.add(cells[i][j] = newCellPane, i, j);
 
-                innerloopCell.growEast();
                 innerloopCell = innerloopCell.getEasternCell();
             }
 
-            outerloopCell.growSouth();
             outerloopCell = outerloopCell.getSouthernCell();
         }
     }
