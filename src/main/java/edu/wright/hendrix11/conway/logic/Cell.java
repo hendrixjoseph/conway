@@ -140,8 +140,12 @@ public class Cell {
     }
 
     private void setNorthernCell(Cell northernCell) {
+        assert this.northernCell == null: "Northern cell already set!";
+        
         northernCell.southernCell = this;
         this.northernCell = northernCell;
+        
+        assert Objects.equal(this.northernCell.southernCell, this);
     }
 
     public Cell getSouthernCell() {
@@ -173,8 +177,12 @@ public class Cell {
     }
 
     private void setSouthernCell(Cell southernCell) {
+        assert this.southernCell == null: "Southern cell already set!";
+        
         southernCell.northernCell = this;
         this.southernCell = southernCell;
+                
+        assert Objects.equal(this.southernCell.northernCell, this);
     }
 
     public Cell getEasternCell() {
@@ -206,8 +214,12 @@ public class Cell {
     }
 
     private void setEasternCell(Cell easternCell) {
+        assert this.easternCell == null: "Eastern cell already set!";
+        
         easternCell.westernCell = this;
         this.easternCell = easternCell;
+                
+        assert Objects.equal(this.easternCell.westernCell, this);
     }
 
     public Cell getWesternCell() {
@@ -239,8 +251,12 @@ public class Cell {
     }
 
     private void setWesternCell(Cell westernCell) {
+        assert this.westernCell == null: "Western cell already set!";
+        
         westernCell.easternCell = this;
         this.westernCell = westernCell;
+                
+        assert Objects.equal(this.westernCell.easternCell, this);
     }
 
     public void toggle() {
