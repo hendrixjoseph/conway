@@ -9,14 +9,15 @@ import edu.wright.hendrix11.conway.logic.Cell;
  */
 public class CellPane extends Pane {
 
-    private static final String DEAD_CELL_STYLE_CLASS = "deadCell";
-    private static final String LIVING_CELL_STYLE_CLASS = "livingCell";
+    private static final String DEAD_CELL_STYLE_CLASS = "dead-cell";
+    private static final String LIVING_CELL_STYLE_CLASS = "living-cell";
     
     private final Cell cell;
 
     public CellPane(Cell cell) {
         this.cell = cell;
         setPrefSize(100.0f, 100.0f);
+        getStyleClass().add("cell");
         setStyle();
         setOnMouseClicked(event -> cell.toggle());
         cell.onToggle(event -> setStyle());
