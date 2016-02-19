@@ -9,8 +9,6 @@ import edu.wright.hendrix11.conway.logic.Grid;
 
 public class Main extends Application {
 
-    private Grid gameGrid = new Grid();
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -20,11 +18,11 @@ public class Main extends Application {
 
         VBox group = new VBox();
 
-        VisibleGrid visibleGrid = new VisibleGrid(gameGrid, 100);
+        VisibleGrid visibleGrid = new VisibleGrid(30);
 
         group.getChildren().add(new ConwayMenu());
         group.getChildren().add(visibleGrid);
-        group.getChildren().add(new Bottom(visibleGrid));
+        group.getChildren().add(new Bottom(visibleGrid.getGameGrid()));
 
         Scene scene = new Scene(group, 700.0f, 700.0f);
         primaryStage.setTitle("CS7140 - Conway's Game of Life");

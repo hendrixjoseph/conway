@@ -10,21 +10,17 @@ import edu.wright.hendrix11.conway.logic.Grid;
  */
 public class VisibleGrid extends GridPane {
 
-    private CellPane[][] cells;
-    private Grid gameGrid;
+    private Grid gameGrid = new Grid();
 
-    public VisibleGrid(Grid gameGrid, int rows, int columns) {
-        this.gameGrid = gameGrid;
-
+    public VisibleGrid(int rows, int columns) {
         createCells(rows, columns, gameGrid);
     }
 
-    public VisibleGrid(Grid gameGrid, int size) {
-        this(gameGrid, size, size);
+    public VisibleGrid(int size) {
+        this(size, size);
     }
 
     private void createCells(int rows, int columns, Grid gameGrid) {
-        cells = new CellPane[rows][columns];
 
         Cell outerloopCell = new Cell(gameGrid);
 
@@ -34,10 +30,7 @@ public class VisibleGrid extends GridPane {
 
             for (int j = 0; j < columns; j++) {
 
-                CellPane newCellPane = new CellPane(innerloopCell);
-                newCellPane.setOnMouseClicked(e -> clickCell(newCellPane));
-
-                this.add(cells[i][j] = newCellPane, i, j);
+                this.add(new CellPane(innerloopCell), i, j);
 
                 innerloopCell = innerloopCell.getSouthernCell();
             }
@@ -46,17 +39,7 @@ public class VisibleGrid extends GridPane {
         }
     }
 
-    private void clickCell(CellPane cellPane) {
-        cellPane.toggle();
-    }
-
-    public void tick() {
-        gameGrid.tick();
-
-        for (CellPane[] c : cells) {
-            for (CellPane cell : c) {
-                cell.setStyle();
-            }
-        }
+    public Grid getGameGrid() {
+        return gameGrid;
     }
 }

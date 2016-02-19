@@ -3,6 +3,8 @@ package edu.wright.hendrix11.conway.logic;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.BooleanSupplier;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,8 +14,9 @@ import java.util.logging.Logger;
 public class Cell {
     private static final Logger LOG = Logger.getLogger(Cell.class.getName());
 
-    private Grid grid;
+    private final Grid grid;
     private boolean alive = false;
+    private Consumer<Void> toggleHandler;
     private Cell northernCell;
     private Cell southernCell;
     private Cell easternCell;
@@ -64,9 +67,8 @@ public class Cell {
             invariant = false;
         }
 
-        if (southernCell != null && westernCell != null && !Objects.equals(southernCell.westernCell, southernCell
-                .westernCell)) {
-            LOG.log(Level.SEVERE, "southernCell.westernCell, southernCell.westernCell");
+        if (southernCell != null && westernCell != null && !Objects.equals(southernCell.westernCell, westernCell.southernCell)) {
+            LOG.log(Level.SEVERE, "southernCell.westernCell != westernCell.southernCell");
             invariant = false;
         }
 
@@ -81,19 +83,29 @@ public class Cell {
         neighbors.add(getEasternCell());
         neighbors.add(getWesternCell());
 
-        neighbors.add(northernCell.easternCell);
-        neighbors.add(northernCell.westernCell);
-        neighbors.add(southernCell.easternCell);
-        neighbors.add(southernCell.westernCell);
+        neighbors.add(northernCell.getEasternCell());
+        neighbors.add(northernCell.getWesternCell());
+        neighbors.add(southernCell.getEasternCell());
+        neighbors.add(southernCell.getWesternCell());
 
-        assert neighbors.size() == 8 && northernCell != null && westernCell != null && easternCell != null &&
-                southernCell != null && northernCell.easternCell != null && northernCell.westernCell != null &&
-                southernCell.easternCell != null && southernCell.westernCell != null : "\nneighbors.size(): " +
-                neighbors.size() + "\nnorthernCell: " + northernCell + "\nwesternCell: " + westernCell +
-                "\neasternCell: " + easternCell + "\nsouthernCell: " + southernCell + "\nnorthernCell.easternCell: "
-                + northernCell.easternCell + "\nnorthernCell.westernCell: " + northernCell.westernCell +
-                "\nsouthernCell.easternCell: " + southernCell.easternCell + "\nsouthernCell.westernCell: " +
-                southernCell.westernCell;
+        assert neighbors.size() == 8
+                && northernCell != null
+                && westernCell != null
+                && easternCell != null
+                && southernCell != null
+                && northernCell.easternCell != null
+                && northernCell.westernCell != null
+                && southernCell.easternCell != null
+                && southernCell.westernCell != null
+                : "\nneighbors.size(): " + neighbors.size()
+                + "\nnorthernCell: " + northernCell
+                + "\nwesternCell: " + westernCell
+                + "\neasternCell: " + easternCell
+                + "\nsouthernCell: " + southernCell
+                + "\nnorthernCell.easternCell: " + northernCell.easternCell
+                + "\nnorthernCell.westernCell: " + northernCell.westernCell
+                + "\nsouthernCell.easternCell: " + southernCell.easternCell
+                + "\nsouthernCell.westernCell: " + southernCell.westernCell;
         assert classInv();
 
         return neighbors;
@@ -239,6 +251,10 @@ public class Cell {
         } else {
             grid.removeDeadCell(this);
         }
+
+        if(toggleHandler != null) {
+            toggleHandler.accept(null);
+        }
     }
 
     public boolean isAlive() {
@@ -267,5 +283,9 @@ public class Cell {
     @Override
     public boolean equals(Object o) {
         return this == o;
+    }
+
+    public void onToggle(Consumer<Void> toggleHandler) {
+        this.toggleHandler = toggleHandler;
     }
 }
