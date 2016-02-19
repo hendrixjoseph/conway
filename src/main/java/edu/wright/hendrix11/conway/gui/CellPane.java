@@ -1,8 +1,8 @@
 package edu.wright.hendrix11.conway.gui;
 
-import edu.wright.hendrix11.conway.logic.Cell;
-import edu.wright.hendrix11.conway.logic.Grid;
 import javafx.scene.layout.Pane;
+
+import edu.wright.hendrix11.conway.logic.Cell;
 
 /**
  * @author Joe Hendrix

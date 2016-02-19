@@ -1,10 +1,11 @@
 package edu.wright.hendrix11.conway.gui;
 
-import edu.wright.hendrix11.conway.logic.Grid;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import edu.wright.hendrix11.conway.logic.Grid;
 
 public class Main extends Application {
 

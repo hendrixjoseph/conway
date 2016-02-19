@@ -10,8 +10,8 @@ public class Grid {
     private Set<Cell> aliveCells = new HashSet<>();
 
     private boolean classInv() {
-        for(Cell cell : aliveCells) {
-            if(!cell.isAlive()) {
+        for (Cell cell : aliveCells) {
+            if (!cell.isAlive()) {
                 return false;
             }
         }
@@ -51,12 +51,10 @@ public class Grid {
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
         for (Cell cell : aliveCells) {
             for (Cell neighbor : cell.getNeighbors()) {
-                if (neighbor != null && !neighbor.isAlive()) {
+                if (!neighbor.isAlive()) {
                     if (checkDeadCell(neighbor)) {
                         toggleTheseCells.add(neighbor);
                     }
-                } else if (neighbor == null) {
-                    // Todo: this case
                 }
             }
         }

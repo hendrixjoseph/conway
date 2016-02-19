@@ -1,8 +1,9 @@
 package edu.wright.hendrix11.conway.gui;
 
+import javafx.scene.layout.GridPane;
+
 import edu.wright.hendrix11.conway.logic.Cell;
 import edu.wright.hendrix11.conway.logic.Grid;
-import javafx.scene.layout.GridPane;
 
 /**
  * @author Joe Hendrix
@@ -38,10 +39,10 @@ public class VisibleGrid extends GridPane {
 
                 this.add(cells[i][j] = newCellPane, i, j);
 
-                innerloopCell = innerloopCell.getEasternCell();
+                innerloopCell = innerloopCell.getSouthernCell();
             }
 
-            outerloopCell = outerloopCell.getSouthernCell();
+            outerloopCell = outerloopCell.getEasternCell();
         }
     }
 
@@ -52,7 +53,7 @@ public class VisibleGrid extends GridPane {
     public void tick() {
         gameGrid.tick();
 
-        for(CellPane[] c : cells) {
+        for (CellPane[] c : cells) {
             for (CellPane cell : c) {
                 cell.setStyle();
             }

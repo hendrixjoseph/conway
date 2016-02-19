@@ -3,8 +3,6 @@ package edu.wright.hendrix11.conway.logic;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author Joe Hendrix
  */

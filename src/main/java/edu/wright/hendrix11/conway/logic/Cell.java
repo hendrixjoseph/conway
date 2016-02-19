@@ -1,19 +1,17 @@
 package edu.wright.hendrix11.conway.logic;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Joe Hendrix
  */
 public class Cell {
     private static final Logger LOG = Logger.getLogger(Cell.class.getName());
-    
+
     private Grid grid;
     private boolean alive = false;
     private Cell northernCell;
@@ -48,22 +46,26 @@ public class Cell {
             invariant = false;
         }
 
-        if (northernCell != null && easternCell != null && !Objects.equals(northernCell.easternCell, easternCell.northernCell)) {
+        if (northernCell != null && easternCell != null && !Objects.equals(northernCell.easternCell, easternCell
+                .northernCell)) {
             LOG.log(Level.SEVERE, "northernCell.easternCell != easternCell.northernCell");
             invariant = false;
         }
 
-        if (northernCell != null && westernCell != null && !Objects.equals(northernCell.westernCell, westernCell.northernCell)) {
+        if (northernCell != null && westernCell != null && !Objects.equals(northernCell.westernCell, westernCell
+                .northernCell)) {
             LOG.log(Level.SEVERE, "northernCell.westernCell != westernCell.northernCell");
             invariant = false;
         }
 
-        if (southernCell != null && easternCell != null && !Objects.equals(southernCell.easternCell, easternCell.southernCell)) {
+        if (southernCell != null && easternCell != null && !Objects.equals(southernCell.easternCell, easternCell
+                .southernCell)) {
             LOG.log(Level.SEVERE, "southernCell.easternCell != easternCell.southernCell");
             invariant = false;
         }
 
-        if (southernCell != null && westernCell != null && !Objects.equals(southernCell.westernCell, southernCell.westernCell)) {
+        if (southernCell != null && westernCell != null && !Objects.equals(southernCell.westernCell, southernCell
+                .westernCell)) {
             LOG.log(Level.SEVERE, "southernCell.westernCell, southernCell.westernCell");
             invariant = false;
         }
@@ -84,64 +86,34 @@ public class Cell {
         neighbors.add(southernCell.easternCell);
         neighbors.add(southernCell.westernCell);
 
-        assert neighbors.size() == 8
-            && northernCell != null
-            && westernCell != null
-            && easternCell != null
-            && southernCell != null
-            && northernCell.easternCell != null
-            && northernCell.westernCell != null
-            && southernCell.easternCell != null
-            && southernCell.westernCell != null
-            : "neighbors.size(): " + neighbors.size()
-             + "\tnorthernCell: " northernCell
-             + "\twesternCell: " westernCell
-             + "\teasternCell: " easternCell
-             + "\tsouthernCell: " southernCell
-             + "\tnorthernCell.easternCell: " northernCell.easternCell
-             + "\tnorthernCell.westernCell: " northernCell.westernCell
-             + "\tsouthernCell.easternCell: " southernCell.easternCell
-             + "\tsouthernCell.westernCell: " southernCell.westernCell;
+        assert neighbors.size() == 8 && northernCell != null && westernCell != null && easternCell != null &&
+                southernCell != null && northernCell.easternCell != null && northernCell.westernCell != null &&
+                southernCell.easternCell != null && southernCell.westernCell != null : "\nneighbors.size(): " +
+                neighbors.size() + "\nnorthernCell: " + northernCell + "\nwesternCell: " + westernCell +
+                "\neasternCell: " + easternCell + "\nsouthernCell: " + southernCell + "\nnorthernCell.easternCell: "
+                + northernCell.easternCell + "\nnorthernCell.westernCell: " + northernCell.westernCell +
+                "\nsouthernCell.easternCell: " + southernCell.easternCell + "\nsouthernCell.westernCell: " +
+                southernCell.westernCell;
         assert classInv();
 
         return neighbors;
     }
 
-    private void setNorthernCell(Cell northernCell) {
-        northernCell.southernCell = this;
-        this.northernCell = northernCell;
-    }
-
-    private void setWesternCell(Cell westernCell) {
-        westernCell.easternCell = this;
-        this.westernCell = westernCell;
-    }
-
-    private void setEasternCell(Cell easternCell) {
-        easternCell.westernCell = this;
-        this.easternCell = easternCell;
-    }
-
-    private void setSouthernCell(Cell southernCell) {
-        southernCell.northernCell = this;
-        this.southernCell = southernCell;
-    }
-
     public Cell getNorthernCell() {
-        if(northernCell == null) {
+        if (northernCell == null) {
             setNorthernCell(new Cell(grid));
 
-            if(easternCell != null) {
-                if(easternCell.northernCell != null) {
-                    northernCell.setEasternCell(easternCell.northernCell);    
+            if (easternCell != null) {
+                if (easternCell.northernCell != null) {
+                    northernCell.setEasternCell(easternCell.northernCell);
                 } else {
                     northernCell.setEasternCell(new Cell(grid));
                     easternCell.setNorthernCell(northernCell.easternCell);
                 }
             }
 
-            if(westernCell != null) {
-                if(westernCell.northernCell != null) {
+            if (westernCell != null) {
+                if (westernCell.northernCell != null) {
                     northernCell.setWesternCell(westernCell.northernCell);
                 } else {
                     northernCell.setWesternCell(new Cell(grid));
@@ -155,12 +127,17 @@ public class Cell {
         return northernCell;
     }
 
+    private void setNorthernCell(Cell northernCell) {
+        northernCell.southernCell = this;
+        this.northernCell = northernCell;
+    }
+
     public Cell getSouthernCell() {
-        if(southernCell == null) {
+        if (southernCell == null) {
             setSouthernCell(new Cell(grid));
 
-            if(easternCell != null) {
-                if(easternCell.southernCell != null) {
+            if (easternCell != null) {
+                if (easternCell.southernCell != null) {
                     southernCell.setEasternCell(easternCell.southernCell);
                 } else {
                     southernCell.setEasternCell(new Cell(grid));
@@ -168,8 +145,8 @@ public class Cell {
                 }
             }
 
-            if(westernCell != null) {
-                if(westernCell.southernCell != null) {
+            if (westernCell != null) {
+                if (westernCell.southernCell != null) {
                     southernCell.setWesternCell(westernCell.southernCell);
                 } else {
                     southernCell.setWesternCell(new Cell(grid));
@@ -183,12 +160,17 @@ public class Cell {
         return southernCell;
     }
 
+    private void setSouthernCell(Cell southernCell) {
+        southernCell.northernCell = this;
+        this.southernCell = southernCell;
+    }
+
     public Cell getEasternCell() {
-        if(easternCell == null) {
+        if (easternCell == null) {
             setEasternCell(new Cell(grid));
 
-            if(northernCell != null) {
-                if(northernCell.easternCell != null) {
+            if (northernCell != null) {
+                if (northernCell.easternCell != null) {
                     easternCell.setNorthernCell(northernCell.easternCell);
                 } else {
                     easternCell.setNorthernCell(new Cell(grid));
@@ -196,8 +178,8 @@ public class Cell {
                 }
             }
 
-            if(southernCell != null) {
-                if(southernCell.easternCell != null) {
+            if (southernCell != null) {
+                if (southernCell.easternCell != null) {
                     easternCell.setSouthernCell(southernCell.easternCell);
                 } else {
                     easternCell.setSouthernCell(new Cell(grid));
@@ -211,12 +193,17 @@ public class Cell {
         return easternCell;
     }
 
+    private void setEasternCell(Cell easternCell) {
+        easternCell.westernCell = this;
+        this.easternCell = easternCell;
+    }
+
     public Cell getWesternCell() {
-        if(westernCell == null) {
+        if (westernCell == null) {
             setWesternCell(new Cell(grid));
 
-            if(northernCell != null) {
-                if(northernCell.westernCell != null) {
+            if (northernCell != null) {
+                if (northernCell.westernCell != null) {
                     westernCell.setNorthernCell(northernCell.westernCell);
                 } else {
                     westernCell.setNorthernCell(new Cell(grid));
@@ -224,8 +211,8 @@ public class Cell {
                 }
             }
 
-            if(southernCell != null) {
-                if(southernCell.westernCell != null) {
+            if (southernCell != null) {
+                if (southernCell.westernCell != null) {
                     westernCell.setSouthernCell(southernCell.westernCell);
                 } else {
                     westernCell.setSouthernCell(new Cell(grid));
@@ -237,6 +224,11 @@ public class Cell {
         assert classInv();
 
         return westernCell;
+    }
+
+    private void setWesternCell(Cell westernCell) {
+        westernCell.easternCell = this;
+        this.westernCell = westernCell;
     }
 
     public void toggle() {
