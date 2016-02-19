@@ -25,6 +25,8 @@ public class Main extends Application {
         group.getChildren().add(new Bottom(visibleGrid.getGameGrid()));
 
         Scene scene = new Scene(group, 700.0f, 700.0f);
+        scene.getStylesheets().add("style.css");
+        
         primaryStage.setTitle("CS7140 - Conway's Game of Life");
         primaryStage.setScene(scene);
         primaryStage.show();
