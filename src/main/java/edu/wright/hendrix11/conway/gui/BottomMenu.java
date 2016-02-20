@@ -10,8 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.wright.hendrix11.conway.logic.Grid;
-import edu.wright.hendrix11.conway.pattern.Pattern;
-import edu.wright.hendrix11.conway.pattern.StillLifePattern;
+import edu.wright.hendrix11.conway.logic.Pattern;
 
 /**
  * @author Joe Hendrix
@@ -36,7 +35,7 @@ public class BottomMenu extends HBox {
 
         this.gameGrid = gameGrid;
 
-        inputChoiceBox.getItems().addAll(Pattern.single, new StillLifePattern.Block(), new StillLifePattern.Behive());
+        inputChoiceBox.getItems().addAll(Pattern.single, Pattern.block);
         inputChoiceBox.setValue(Pattern.single);
 
         startPauseButton.setOnMouseClicked(action -> start());

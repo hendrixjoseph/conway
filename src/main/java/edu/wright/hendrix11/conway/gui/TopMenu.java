@@ -5,6 +5,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.stage.FileChooser;
 
 /**
  * @author Joe Hendrix
@@ -42,6 +43,14 @@ public class TopMenu extends MenuBar {
 
     private Menu generateFileMenu() {
         Menu fileMenu = new Menu("File");
+
+        FileChooser patternChooser = new FileChooser();
+        patternChooser.setTitle("Choose pattern...");
+
+        MenuItem patternItem = new MenuItem("Load pattern");
+        patternItem.setOnAction(action -> patternChooser.showOpenDialog(null));
+
+        fileMenu.getItems().addAll(patternItem,new MenuItem("Save pattern"),new MenuItem("Load CSS"));
 
         MenuItem exitItem = new MenuItem("Exit");
         exitItem.setOnAction(action -> System.exit(0));

@@ -5,9 +5,7 @@ import javafx.scene.layout.Pane;
 import java.util.function.Supplier;
 
 import edu.wright.hendrix11.conway.logic.Cell;
-import edu.wright.hendrix11.conway.pattern.Generator;
-import edu.wright.hendrix11.conway.pattern.Pattern;
-import edu.wright.hendrix11.conway.pattern.StillLifePattern;
+import edu.wright.hendrix11.conway.logic.Pattern;
 
 /**
  * @author Joe Hendrix
@@ -32,8 +30,7 @@ public class CellPane extends Pane {
     }
 
     private void clicked() {
-        Pattern pattern = patternSupplier.get();
-        Generator.generate(cell, pattern.getPattern());
+        patternSupplier.get().generate(cell);
     }
 
     private boolean classInv() {

@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 import edu.wright.hendrix11.conway.logic.Cell;
 import edu.wright.hendrix11.conway.logic.Grid;
-import edu.wright.hendrix11.conway.pattern.Pattern;
+import edu.wright.hendrix11.conway.logic.Pattern;
 
 /**
  * @author Joe Hendrix
