@@ -15,20 +15,26 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
-        VBox group = new VBox();
-
-        VisibleGrid visibleGrid = new VisibleGrid(30);
-
-        group.getChildren().add(new ConwayMenu());
-        group.getChildren().add(visibleGrid);
-        group.getChildren().add(new Bottom(visibleGrid.getGameGrid()));
-
-        Scene scene = new Scene(group, 700.0f, 700.0f);
+        Scene scene = new Scene(generateMainArea(), 700.0f, 700.0f);
         scene.getStylesheets().add("style.css");
-        
+
         primaryStage.setTitle("CS7140 - Conway's Game of Life");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private VBox generateMainArea() {
+        Grid gameGrid = new Grid();
+
+        VBox group = new VBox();
+
+        BottomMenu bottomMenu = new BottomMenu(gameGrid);
+        VisibleGrid visibleGrid = new VisibleGrid(gameGrid, 30, bottomMenu::getInputType);
+
+        group.getChildren().add(new TopMenu());
+        group.getChildren().add(visibleGrid);
+        group.getChildren().add(bottomMenu);
+
+        return group;
     }
 }

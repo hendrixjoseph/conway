@@ -2,17 +2,14 @@ package edu.wright.hendrix11.conway.logic;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author Joe Hendrix
  */
-public class Grid extends Thread {
-    private static final Logger LOG = Logger.getLogger(Grid.class.getName());
+public class Grid {
+
     private Set<Cell> aliveCells = new HashSet<>();
-    private long waitValue = 500;
-    private volatile boolean running = false;
+    private int generation = 0;
 
     private boolean classInv() {
         boolean invariant = true;
@@ -26,8 +23,10 @@ public class Grid extends Thread {
         return invariant;
     }
 
-    public void setWaitValue(long waitValue) {
-        this.waitValue = waitValue;
+    public void addLivingCell(Cell cell) {
+        assert cell.isAlive();
+        aliveCells.add(cell);
+        assert classInv();
     }
 
     public void clear() {
@@ -36,10 +35,8 @@ public class Grid extends Thread {
         copy.forEach(cell -> cell.toggle());
     }
 
-    public void addLivingCell(Cell cell) {
-        assert cell.isAlive();
-        aliveCells.add(cell);
-        assert classInv();
+    public int getGeneration() {
+        return generation;
     }
 
     public void removeDeadCell(Cell cell) {
@@ -56,11 +53,10 @@ public class Grid extends Thread {
         checkAdjacentDeadCells(toggleTheseCells);
 
         toggleCells(toggleTheseCells);
-        assert classInv();
-    }
 
-    private void toggleCells(Set<Cell> toggleTheseCells) {
-        toggleTheseCells.forEach(cell -> cell.toggle());
+        generation++;
+
+        assert classInv();
     }
 
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
@@ -103,28 +99,7 @@ public class Grid extends Thread {
         }
     }
 
-    public void kill() {
-        running = false;
-    }
-
-    public void restart() {
-        running = true;
-        System.err.println("restarting");
-    }
-
-    @Override
-    public void run() {
-        running = true;
-
-        while(true) {
-            while (running) {
-                try {
-                    tick();
-                    Thread.sleep(waitValue);
-                } catch (InterruptedException e) {
-                    LOG.log(Level.SEVERE, e.getClass().getName(), e);
-                }
-            }
-        }
+    private void toggleCells(Set<Cell> toggleTheseCells) {
+        toggleTheseCells.forEach(cell -> cell.toggle());
     }
 }

@@ -1,5 +1,5 @@
 .cell {
-  
+
 }
 
 .dead-cell {
@@ -11,4 +11,13 @@
 .living-cell {
   -fx-background-color: black;
   -fx-border-color: black;
+}
+
+.bottom {
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+
+.button {
+    -fx-pref-width: 50px;
 }
