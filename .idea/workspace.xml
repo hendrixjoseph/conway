@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b3ce8fb-f655-4bf4-94cc-a5152d64d057" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/BottomMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/CellPane.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/TopMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/VisibleGrid.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/edu/wright/hendrix11/conway/logic/CellTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/style.css" afterPath="$PROJECT_DIR$/src/main/resources/style.css" />
     </list>
     <ignored path="conway.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,41 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56790125">
-              <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pattern.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BottomMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state vertical-scroll-proportion="2.1065218">
+              <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -101,8 +76,6 @@
         <option value="$PROJECT_DIR$/src/test/java/edu/wright/hendrix11/conway/gui/MainTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/edu/wright/hendrix11/conway/logic/CellTest.java" />
         <option value="/CSS Fragment (CellPane.java:676).css" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
         <option value="$PROJECT_DIR$/src/main/resources/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Bottom.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/ConwayMenu.java" />
@@ -114,11 +87,16 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/pattern/Pattern.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/CellPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/TopMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/BottomMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -133,6 +111,31 @@
         <option name="mavenHome" value="Bundled (Maven 3)" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="conway" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -249,52 +252,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conway" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -311,10 +268,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,7 +425,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -895,32 +848,6 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="CellTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="edu.wright.hendrix11.conway.logic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="conway" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="edu.wright.hendrix11.conway.logic" />
-      <option name="MAIN_CLASS_NAME" value="edu.wright.hendrix11.conway.logic.CellTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="MainTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -933,11 +860,11 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="edu.wright.hendrix11.conway.gui" />
       <option name="MAIN_CLASS_NAME" value="edu.wright.hendrix11.conway.gui.MainTest" />
-      <option name="METHOD_NAME" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -947,10 +874,9 @@
       <patterns />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.CellTest" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.MainTest" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MainTest" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -979,44 +905,44 @@
       <workItem from="1455838892492" duration="5152000" />
       <workItem from="1455844073315" duration="12982000" />
       <workItem from="1455923837298" duration="15120000" />
-      <workItem from="1455978383826" duration="5951000" />
+      <workItem from="1455978383826" duration="11740000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainTest - 2016.02.20 at 20h 26m 12s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 44m 25s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 26m 35s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 44m 52s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 27m 00s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 45m 10s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 28m 03s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 46m 08s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 31m 01s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 46m 52s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 33m 30s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 47m 25s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 35m 08s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 48m 18s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 54m 11s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 21h 50m 20s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 55m 47s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 22h 05m 56s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 20h 59m 01s.xml">
+    <history-entry file="MainTest - 2016.02.20 at 22h 26m 48s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81011000" />
+    <option name="totallyTimeSpent" value="86800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -1024,16 +950,20 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39817232" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.160625" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1042,9 +972,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994374" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1072,14 +1000,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1337,13 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/edu/wright/hendrix11/conway/logic/CellTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1370,50 +1283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5173913">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.14782609">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1421,7 +1294,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1429,15 +1302,286 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56790125">
-          <caret line="37" column="64" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="86" selection-start-line="49" selection-start-column="86" selection-end-line="49" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75514406">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26337448">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.034979425">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6090535">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="369" column="32" selection-start-line="369" selection-start-column="32" selection-end-line="369" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="0.0" y="225.0">com</node>
+            <node x="180.0" y="0.0">netscape</node>
+            <node x="150.0" y="225.0">junit</node>
+            <node x="169.0" y="75.0">oracle</node>
+            <node x="145.0" y="375.0">org</node>
+            <node x="0.0" y="75.0">patterns</node>
+            <node x="0.0" y="375.0">sun</node>
+            <node x="0.0" y="0.0">META-INF</node>
+            <node x="289.0" y="375.0">jdk</node>
+            <node x="0.0" y="300.0">java</node>
+            <node x="157.0" y="150.0">javax</node>
+            <node x="147.0" y="300.0">edu</node>
+            <node x="0.0" y="150.0">javafx</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-238.5" y="213.0" />
+          <SelectedNodes>
+            <node>oracle</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/edu.wright.hendrix11.conway.logic">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>edu.wright.hendrix11.conway.logic</OriginalElement>
+          <nodes>
+            <node x="0.0" y="518.0">edu.wright.hendrix11.conway.logic.Grid</node>
+            <node x="424.0" y="518.0">edu.wright.hendrix11.conway.logic.Pattern</node>
+            <node x="0.0" y="0.0">edu.wright.hendrix11.conway.logic.Cell</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="edu.wright.hendrix11.conway.logic.Grid" target="edu.wright.hendrix11.conway.logic.Cell">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.logic.Cell" target="edu.wright.hendrix11.conway.logic.Grid">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.logic.Pattern" target="edu.wright.hendrix11.conway.logic.Cell">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.logic.Pattern" target="edu.wright.hendrix11.conway.logic.Pattern">
+              <point x="0.0" y="0.0" />
+              <point x="566.5" y="393.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.logic.Cell" target="edu.wright.hendrix11.conway.logic.Cell">
+              <point x="0.0" y="0.0" />
+              <point x="249.0" y="-246.5" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.4246068455134135" x="-661.7342047930284" y="308.2287581699346" />
+          <SelectedNodes>
+            <node>edu.wright.hendrix11.conway.logic.Cell</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/edu.wright.hendrix11.conway">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>edu.wright.hendrix11.conway</OriginalElement>
+          <nodes>
+            <node x="0.0" y="75.0">edu.wright.hendrix11.conway.gui</node>
+            <node x="0.0" y="0.0">edu.wright.hendrix11.conway.logic</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="edu.wright.hendrix11.conway.logic" target="edu.wright.hendrix11.conway.logic">
+              <point x="0.0" y="0.0" />
+              <point x="53.5" y="-25.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui" target="edu.wright.hendrix11.conway.logic">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui" target="edu.wright.hendrix11.conway.gui">
+              <point x="0.0" y="0.0" />
+              <point x="49.0" y="50.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-378.0" y="49.0" />
+          <SelectedNodes>
+            <node>edu.wright.hendrix11.conway.gui</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/edu.wright.hendrix11.conway.gui">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>edu.wright.hendrix11.conway.gui</OriginalElement>
+          <nodes>
+            <node x="67.49999999999999" y="90.0">edu.wright.hendrix11.conway.gui.Main</node>
+            <node x="172.0" y="0.0">edu.wright.hendrix11.conway.gui.grid</node>
+            <node x="20.0" y="0.0">edu.wright.hendrix11.conway.gui.menu</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="edu.wright.hendrix11.conway.gui.menu" target="edu.wright.hendrix11.conway.gui.menu">
+              <point x="-37.33333333333334" y="15.0" />
+              <point x="38.66666666666666" y="50.0" />
+              <point x="0.0" y="50.0" />
+              <point x="0.0" y="15.0" />
+              <point x="-56.0" y="-0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui.Main" target="edu.wright.hendrix11.conway.gui.grid">
+              <point x="74.25" y="-70.5" />
+              <point x="240.75" y="70.0" />
+              <point x="257.0" y="70.0" />
+              <point x="34.0" y="15.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui.Main" target="edu.wright.hendrix11.conway.gui.Main">
+              <point x="0.0" y="70.5" />
+              <point x="166.5" y="251.0" />
+              <point x="47.499999999999986" y="251.0" />
+              <point x="47.499999999999986" y="160.5" />
+              <point x="-99.0" y="-0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui.Main" target="edu.wright.hendrix11.conway.gui.menu">
+              <point x="-24.75" y="-70.5" />
+              <point x="141.75" y="70.0" />
+              <point x="113.33333333333337" y="70.0" />
+              <point x="37.33333333333337" y="15.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui.grid" target="edu.wright.hendrix11.conway.gui.grid">
+              <point x="-34.0" y="15.0" />
+              <point x="189.0" y="50.0" />
+              <point x="152.0" y="50.0" />
+              <point x="152.0" y="15.0" />
+              <point x="-51.0" y="-0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-285.5" y="167.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/edu.wright.hendrix11.conway.gui.menu">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>edu.wright.hendrix11.conway.gui.menu</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">edu.wright.hendrix11.conway.gui.menu.BottomMenu</node>
+            <node x="0.0" y="75.0">edu.wright.hendrix11.conway.gui.menu.TopMenu</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="edu.wright.hendrix11.conway.gui.menu.BottomMenu" target="edu.wright.hendrix11.conway.gui.menu.BottomMenu">
+              <point x="0.0" y="0.0" />
+              <point x="52.5" y="-25.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="edu.wright.hendrix11.conway.gui.menu.TopMenu" target="edu.wright.hendrix11.conway.gui.menu.TopMenu">
+              <point x="0.0" y="0.0" />
+              <point x="42.5" y="50.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.5652709359605911" x="239.0" y="396.00000000000006" />
+          <SelectedNodes>
+            <node>edu.wright.hendrix11.conway.gui.menu.BottomMenu</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1065218">
+          <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
           <folding />
         </state>
       </provider>

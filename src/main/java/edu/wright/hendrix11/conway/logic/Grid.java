@@ -32,7 +32,9 @@ public class Grid {
     public void clear() {
         // The copy prevents a java.util.ConcurrentModificationException
         Set<Cell> copy = new HashSet<>(aliveCells);
-        copy.forEach(cell -> cell.toggle());
+        copy.forEach(Cell::toggle);
+        assert aliveCells.isEmpty();
+        assert classInv();
     }
 
     public int getGeneration() {
@@ -42,6 +44,7 @@ public class Grid {
     public void removeDeadCell(Cell cell) {
         assert !cell.isAlive();
         aliveCells.remove(cell);
+        assert !aliveCells.contains(cell);
         assert classInv();
     }
 
@@ -60,15 +63,11 @@ public class Grid {
     }
 
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
-        for (Cell cell : aliveCells) {
-            for (Cell neighbor : cell.getNeighbors()) {
-                if (!neighbor.isAlive()) {
-                    if (checkDeadCell(neighbor)) {
-                        toggleTheseCells.add(neighbor);
-                    }
-                }
+        aliveCells.forEach(cell -> cell.getNeighbors().forEach(neighbor -> {
+            if (!neighbor.isAlive() && checkDeadCell(neighbor)) {
+                    toggleTheseCells.add(neighbor);
             }
-        }
+        }));
     }
 
     private boolean checkDeadCell(Cell deadCell) {
@@ -92,14 +91,14 @@ public class Grid {
     }
 
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
-        for (Cell cell : aliveCells) {
+        aliveCells.forEach(cell ->  {
             if (checkLivingCell(cell)) {
                 toggleTheseCells.add(cell);
             }
-        }
+        });
     }
 
     private void toggleCells(Set<Cell> toggleTheseCells) {
-        toggleTheseCells.forEach(cell -> cell.toggle());
+        toggleTheseCells.forEach(Cell::toggle);
     }
 }

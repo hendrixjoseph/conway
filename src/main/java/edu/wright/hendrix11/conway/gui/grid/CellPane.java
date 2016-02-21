@@ -29,18 +29,14 @@ public class CellPane extends Pane {
         assert classInv();
     }
 
-    private void clicked() {
-        patternSupplier.get().generate(cell);
-    }
-
     private boolean classInv() {
         return (cell.isAlive() && getStyleClass().contains(LIVING_CELL_STYLE_CLASS) && !getStyleClass().contains
                 (DEAD_CELL_STYLE_CLASS)) || ((!cell.isAlive() && !getStyleClass().contains(LIVING_CELL_STYLE_CLASS)
                 && getStyleClass().contains(DEAD_CELL_STYLE_CLASS)));
     }
 
-    public Cell getCell() {
-        return cell;
+    private void clicked() {
+        patternSupplier.get().generate(cell);
     }
 
     private void setStyleClass() {

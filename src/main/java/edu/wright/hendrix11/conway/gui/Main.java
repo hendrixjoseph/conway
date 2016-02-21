@@ -40,6 +40,22 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    private VBox generateMainArea() {
+        Grid gameGrid = new Grid();
+
+        VBox group = new VBox();
+
+        BottomMenu bottomMenu = new BottomMenu(gameGrid);
+        bottomMenu.addPatterns(loadPatterns());
+        VisibleGrid visibleGrid = new VisibleGrid(gameGrid, 30, bottomMenu::getPattern);
+
+        group.getChildren().add(new TopMenu(pattern -> bottomMenu.addPattern(pattern)));
+        group.getChildren().add(visibleGrid);
+        group.getChildren().add(bottomMenu);
+
+        return group;
+    }
+
     private List<Pattern> loadPatterns() {
         URL resource = Main.class.getResource("/patterns");
 
@@ -48,10 +64,10 @@ public class Main extends Application {
         try {
             Path path = Paths.get(resource.toURI());
             Files.list(path).forEach(file -> {
-                if(Files.isRegularFile(file) && file.getFileName().toString().endsWith("txt")) {
+                if (Files.isRegularFile(file) && file.getFileName().toString().endsWith("txt")) {
                     try {
                         List<String> pattern = Files.readAllLines(file);
-                        String name = file.getFileName().toString().replace(".txt","");
+                        String name = file.getFileName().toString().replace(".txt", "");
                         patterns.add(new Pattern(name, pattern));
                     } catch (IOException e) {
                         LOG.log(Level.SEVERE, e.getClass().getName(), e);
@@ -63,21 +79,5 @@ public class Main extends Application {
         }
 
         return patterns;
-    }
-
-    private VBox generateMainArea() {
-        Grid gameGrid = new Grid();
-
-        VBox group = new VBox();
-
-        BottomMenu bottomMenu = new BottomMenu(gameGrid);
-        bottomMenu.addPatterns(loadPatterns());
-        VisibleGrid visibleGrid = new VisibleGrid(gameGrid, 30, bottomMenu::getInputType);
-
-        group.getChildren().add(new TopMenu());
-        group.getChildren().add(visibleGrid);
-        group.getChildren().add(bottomMenu);
-
-        return group;
     }
 }

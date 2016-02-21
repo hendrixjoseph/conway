@@ -75,6 +75,11 @@ public class Cell {
         return invariant;
     }
 
+    /**
+     * Returns the cell to the east of this one. If this cell does not exist yet, it creates it.
+     *
+     * @return the eastern cell
+     */
     public Cell getEasternCell() {
         if (easternCell == null) {
             setEasternCell(new Cell(grid));
@@ -103,6 +108,11 @@ public class Cell {
         return easternCell;
     }
 
+    /**
+     * Returns the cell to the north of this one. If this cell does not exist yet, it creates it.
+     *
+     * @return the northern cell
+     */
     public Cell getNorthernCell() {
         if (northernCell == null) {
             setNorthernCell(new Cell(grid));
@@ -131,6 +141,11 @@ public class Cell {
         return northernCell;
     }
 
+    /**
+     * Returns the cell to the south of this one. If this cell does not exist yet, it creates it.
+     *
+     * @return the southern cell
+     */
     public Cell getSouthernCell() {
         if (southernCell == null) {
             setSouthernCell(new Cell(grid));
@@ -159,6 +174,11 @@ public class Cell {
         return southernCell;
     }
 
+    /**
+     * Returns the cell to the west of this one. If this cell does not exist yet, it creates it.
+     *
+     * @return the western cell
+     */
     public Cell getWesternCell() {
         if (westernCell == null) {
             setWesternCell(new Cell(grid));
@@ -187,6 +207,12 @@ public class Cell {
         return westernCell;
     }
 
+    /**
+     * Returns the set of neighbors to this cell. Every cell has exactly 8 unique neighbors: four from the cardinal
+     * directions and four from the diagonal directions.
+     *
+     * @return the set of neighbors
+     */
     public Set<Cell> getNeighbors() {
         Set<Cell> neighbors = new HashSet<>();
 
@@ -213,6 +239,13 @@ public class Cell {
         return neighbors;
     }
 
+    /**
+     * Counts and returns the number of living neighbors. Since every cell has exactly eight neighbors, it can have at
+     * most 8 living neighbors. No neighbor is required to be alive, however, so it can also have as few as 0 living
+     * neighbors.
+     *
+     * @return the number of living neighbors
+     */
     public int getNumberLivingNeighbors() {
         int count = 0;
 
@@ -227,14 +260,32 @@ public class Cell {
         return count;
     }
 
+
+    /**
+     * Returns true is this cell is alive, false otherwise.
+     *
+     * @return whether this cell is alive
+     */
     public boolean isAlive() {
         return alive;
     }
 
+    /**
+     *
+     *
+     * @param toggleHandler
+     */
     public void onToggle(Consumer<Void> toggleHandler) {
         this.toggleHandler = toggleHandler;
     }
 
+    /**
+     * Toggles the living state of this cell. If the cell was alive, after this method it is now dead. Conversely,
+     * if the cell was dead, it is now alive.
+     *
+     * This method will also add or remove the cell from the living cell list in the {@link Grid} it is associated with,
+     * depending if it is now alive or dead.
+     */
     public void toggle() {
         alive = !alive;
 
@@ -249,6 +300,12 @@ public class Cell {
         }
     }
 
+    /**
+     * Sets the eastern cell, then sets the eastern cell's western cell to this. This method should only be called if
+     * eastern cell has not been set yet.
+     *
+     * @param easternCell
+     */
     private void setEasternCell(Cell easternCell) {
         assert this.easternCell == null : "Eastern cell already set!";
 
@@ -258,6 +315,12 @@ public class Cell {
         assert Objects.equals(this.easternCell.westernCell, this);
     }
 
+    /**
+     * Sets the northern cell, then sets the northern cell's southern cell to this. This method should only be called if
+     * northern cell has not been set yet.
+     *
+     * @param northernCell
+     */
     private void setNorthernCell(Cell northernCell) {
         assert this.northernCell == null : "Northern cell already set!";
 
@@ -267,6 +330,12 @@ public class Cell {
         assert Objects.equals(this.northernCell.southernCell, this);
     }
 
+    /**
+     * Sets the southern cell, then sets the southern cell's northern cell to this. This method should only be called if
+     * eastern cell has not been set yet.
+     *
+     * @param southernCell
+     */
     private void setSouthernCell(Cell southernCell) {
         assert this.southernCell == null : "Southern cell already set!";
 
@@ -276,6 +345,12 @@ public class Cell {
         assert Objects.equals(this.southernCell.northernCell, this);
     }
 
+    /**
+     * Sets the western cell, then sets the western cell's eastern cell to this. This method should only be called if
+     * eastern cell has not been set yet.
+     *
+     * @param westernCell
+     */
     private void setWesternCell(Cell westernCell) {
         assert this.westernCell == null : "Western cell already set!";
 
@@ -285,11 +360,24 @@ public class Cell {
         assert Objects.equals(this.westernCell.easternCell, this);
     }
 
+    /**
+     * This hash code method simply calls the super method.
+     *
+     * @return the super hash code
+     */
     @Override
     public int hashCode() {
         return super.hashCode();
     }
 
+    /**
+     * Returns true if the parameter is this cell. Cells are "equal" if and only if they are the same object, therefore
+     * this method returns {@code this == o}.
+     *
+     * @param o another object
+     *
+     * @return true if the other object is this cell
+     */
     @Override
     public boolean equals(Object o) {
         return this == o;

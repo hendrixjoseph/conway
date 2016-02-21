@@ -1,15 +1,10 @@
 package edu.wright.hendrix11.conway.gui.menu;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -24,16 +19,15 @@ import edu.wright.hendrix11.conway.logic.Pattern;
 public class BottomMenu extends HBox {
 
     private static final Logger LOG = Logger.getLogger(BottomMenu.class.getName());
-
+    private Button clearButton = new Button("Clear");
     private Grid gameGrid;
+    private ChoiceBox<Pattern> inputChoiceBox = new ChoiceBox<>();
     private volatile boolean running = false;
     private Label sliderLabel = new Label();
     private Button startPauseButton = new Button("Start");
     private Label statusLabel = new Label("Generation: 0");
     private Button tickButton = new Button("Tick");
     private long waitTime = 500;
-    private ChoiceBox<Pattern> inputChoiceBox = new ChoiceBox<>();
-    private Button clearButton = new Button("Clear");
 
     public BottomMenu(Grid gameGrid) {
         super(10);
@@ -52,15 +46,20 @@ public class BottomMenu extends HBox {
         Slider speedSlider = new Slider(0.5, 10, waitTime / 100);
         speedSlider.valueProperty().addListener(action -> setSpeed(speedSlider.getValue()));
 
-        this.getChildren().addAll(inputChoiceBox, tickButton, startPauseButton, clearButton, sliderLabel, speedSlider, statusLabel);
+        this.getChildren().addAll(inputChoiceBox, tickButton, startPauseButton, clearButton, sliderLabel,
+                speedSlider, statusLabel);
     }
 
-    public Pattern getInputType() {
-        return inputChoiceBox.getValue();
+    public void addPattern(Pattern pattern) {
+        inputChoiceBox.getItems().add(pattern);
     }
 
     public void addPatterns(List<Pattern> patterns) {
         inputChoiceBox.getItems().addAll(patterns);
+    }
+
+    public Pattern getPattern() {
+        return inputChoiceBox.getValue();
     }
 
     private void pause() {
@@ -84,6 +83,7 @@ public class BottomMenu extends HBox {
         running = true;
 
         new Thread() {
+            @Override
             public void run() {
                 while (running) {
                     try {

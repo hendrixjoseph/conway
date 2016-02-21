@@ -13,10 +13,7 @@ import edu.wright.hendrix11.conway.logic.Pattern;
  */
 public class VisibleGrid extends GridPane {
 
-    private final Grid gameGrid;
-
     public VisibleGrid(Grid gameGrid, int rows, int columns, Supplier<Pattern> patternSupplier) {
-        this.gameGrid = gameGrid;
         createCells(rows, columns, gameGrid, patternSupplier);
     }
 
