@@ -1,4 +1,4 @@
-package edu.wright.hendrix11.conway.gui;
+package edu.wright.hendrix11.conway.gui.grid;
 
 import javafx.scene.layout.GridPane;
 

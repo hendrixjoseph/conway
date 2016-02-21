@@ -1,11 +1,17 @@
-package edu.wright.hendrix11.conway.gui;
+package edu.wright.hendrix11.conway.gui.menu;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,6 +59,10 @@ public class BottomMenu extends HBox {
         return inputChoiceBox.getValue();
     }
 
+    public void addPatterns(List<Pattern> patterns) {
+        inputChoiceBox.getItems().addAll(patterns);
+    }
+
     private void pause() {
         startPauseButton.setText("Start");
         startPauseButton.setOnMouseClicked(action -> start());
@@ -95,4 +105,5 @@ public class BottomMenu extends HBox {
     private void updateStatusLabel() {
         statusLabel.setText("Generation: " + gameGrid.getGeneration());
     }
+
 }
