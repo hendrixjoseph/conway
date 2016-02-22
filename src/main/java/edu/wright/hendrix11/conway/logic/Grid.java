@@ -11,6 +11,10 @@ public class Grid {
     private Set<Cell> aliveCells = new HashSet<>();
     private int generation = 0;
 
+    /**
+     * All cells in aliveCells must be alive.
+     * The current generation can never be negative.
+     */ 
     private boolean classInv() {
         boolean invariant = true;
 
@@ -19,16 +23,39 @@ public class Grid {
                 invariant = false;
             }
         }
+        
+        if(generation < 0) {
+            invariant = false;
+        }
 
         return invariant;
     }
 
-    public void addLivingCell(Cell cell) {
+    /**
+     * Adds a living cell to the aliveCells set. This method is package-private and is called explicity by
+     * the {@link Cell} class.
+     * 
+     * precondition:    cell is alive
+     * postcondition:   cell is in aliveCells
+     * 
+     */
+    void addLivingCell(Cell cell) {
         assert cell.isAlive();
+        
         aliveCells.add(cell);
+        
+        assert aliveCells.contains(cell);
         assert classInv();
     }
 
+    /**
+     * Empties the aliveCells set by toggling each living cell. The now-dead cell will remove itself
+     * from the aliveCell set.
+     * 
+     * precondition:    aliveCells is not null
+     * postcondition:   aliveCells is empty and all cells that were in aliveCells are not alive
+     *
+     */
     public void clear() {
         // The copy prevents a java.util.ConcurrentModificationException
         Set<Cell> copy = new HashSet<>(aliveCells);
@@ -37,19 +64,33 @@ public class Grid {
         assert classInv();
     }
 
+    /**
+     * Returns the current generation.
+     */
     public int getGeneration() {
         return generation;
     }
 
-    public void removeDeadCell(Cell cell) {
+    /**
+     * Removes a dead cell from the aliveCells set. This method is package-private and is called explicity by
+     * the {@link Cell} class.
+     * 
+     * precondition:    cell is not alive
+     * postcondition:   cell is not in aliveCells
+     * 
+     */
+    void removeDeadCell(Cell cell) {
         assert !cell.isAlive();
+        
         aliveCells.remove(cell);
+        
         assert !aliveCells.contains(cell);
         assert classInv();
     }
 
     public void tick() {
         assert classInv();
+        
         Set<Cell> toggleTheseCells = new HashSet<>();
 
         checkLivingCells(toggleTheseCells);
@@ -70,6 +111,12 @@ public class Grid {
         }));
     }
 
+    /**
+     * 
+     * precondition:    
+     * postcondition:   
+     * 
+     */
     private boolean checkDeadCell(Cell deadCell) {
         assert !deadCell.isAlive();
 
@@ -80,6 +127,12 @@ public class Grid {
         return numberOfLivingNeighbors == 3;
     }
 
+    /**
+     * 
+     * precondition:    
+     * postcondition:   
+     * 
+     */
     private boolean checkLivingCell(Cell livingCell) {
         assert livingCell.isAlive();
 
@@ -90,6 +143,12 @@ public class Grid {
         return numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3;
     }
 
+    /**
+     * 
+     * precondition:    
+     * postcondition:   
+     * 
+     */
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
         aliveCells.forEach(cell ->  {
             if (checkLivingCell(cell)) {
