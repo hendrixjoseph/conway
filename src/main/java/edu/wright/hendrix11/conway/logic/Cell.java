@@ -303,6 +303,9 @@ public class Cell {
     /**
      * Sets the eastern cell, then sets the eastern cell's western cell to this. This method should only be called if
      * eastern cell has not been set yet.
+     * 
+     * precondition:    this.easternCell has not been set
+     * postcondition:   this.easternCell.westernCell is this cell
      *
      * @param easternCell
      */
@@ -318,6 +321,9 @@ public class Cell {
     /**
      * Sets the northern cell, then sets the northern cell's southern cell to this. This method should only be called if
      * northern cell has not been set yet.
+     * 
+     * precondition:    this.northernCell has not been set
+     * postcondition:   this.northernCell.southernCell is this cell
      *
      * @param northernCell
      */
@@ -333,7 +339,10 @@ public class Cell {
     /**
      * Sets the southern cell, then sets the southern cell's northern cell to this. This method should only be called if
      * eastern cell has not been set yet.
-     *
+     * 
+     * precondition:    this.southernCell has not been set
+     * postcondition:   this.southernCell.northernCell is this cell
+     * 
      * @param southernCell
      */
     private void setSouthernCell(Cell southernCell) {
@@ -348,7 +357,10 @@ public class Cell {
     /**
      * Sets the western cell, then sets the western cell's eastern cell to this. This method should only be called if
      * eastern cell has not been set yet.
-     *
+     * 
+     * precondition:    this.easternCell has not been set
+     * postcondition:   this.easternCell.westernCell is this cell
+     * 
      * @param westernCell
      */
     private void setWesternCell(Cell westernCell) {
