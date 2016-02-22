@@ -88,6 +88,16 @@ public class Grid {
         assert classInv();
     }
 
+    /**
+     * Ticks or cycles through one generation. All cells must be checked before they are toggled in order
+     * to prevent them from affecting an adjacent cell's outcome.
+     * 
+     * precondition:    
+     * postcondition:   the new generation is exactly one higher than the old generation
+     *                  any cells that are now alive are in aliveCells
+     *                  any cells that are now dead are not in aliveCells
+     * 
+     */
     public void tick() {
         assert classInv();
         
@@ -112,9 +122,17 @@ public class Grid {
     }
 
     /**
+     * This method checks to see if a dead cell should become alive. Since it is checking a dead cell,
+     * rule 4 for the Game of Life applies:
      * 
-     * precondition:    
+     * <ol start="4">
+     * <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+     * </ol>
+     * 
+     * precondition:    deadCell is not alive
      * postcondition:   
+     * 
+     * @return true if it should become alive, false otherwise
      * 
      */
     private boolean checkDeadCell(Cell deadCell) {
@@ -122,23 +140,29 @@ public class Grid {
 
         int numberOfLivingNeighbors = deadCell.getNumberLivingNeighbors();
 
-        assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
-
         return numberOfLivingNeighbors == 3;
     }
 
     /**
+     * This method checks to see if a living cell should die. Since it is checking a living cell,
+     * rules 1 through 3 for the Game of Life apply:
      * 
-     * precondition:    
+     * <ol>
+     * <li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
+     * <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+     * <li>Any live cell with more than three live neighbours dies, as if by over-population.</li>
+     * </ol>
+     * 
+     * precondition:    livingCell is alive
      * postcondition:   
+     * 
+     * @return true if it should die, false otherwise
      * 
      */
     private boolean checkLivingCell(Cell livingCell) {
         assert livingCell.isAlive();
 
         int numberOfLivingNeighbors = livingCell.getNumberLivingNeighbors();
-
-        assert numberOfLivingNeighbors >= 0 && numberOfLivingNeighbors <= 8;
 
         return numberOfLivingNeighbors < 2 || numberOfLivingNeighbors > 3;
     }
