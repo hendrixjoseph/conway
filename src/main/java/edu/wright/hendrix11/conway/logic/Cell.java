@@ -117,17 +117,19 @@ public class Cell {
     /**
      * Creates and / or sets the northeastern cell.
      * 
-     * precondition:    
+     * precondition:    northernCell or easternCell is not null
      * postcondition:   northernCell.easternCell == easternCell.northernCell
      *
      * @return the eastern cell
      */
     private void createNortheasternCell() {
+        assert northernCell != null || easternCell != null;
+        
         if (northernCell != null && northernCell.easternCell != null) {
             easternCell.setNorthernCell(northernCell.easternCell);
         } else if (easternCell != null && easternCell.northernCell != null) {
             northernCell.setEasternCell(easternCell.northernCell);
-        } else {
+        } else if (northernCell != null && easternCell != null) {
             easternCell.setNorthernCell(new Cell(grid));
             northernCell.setEasternCell(easternCell.northernCell);
         }
@@ -138,12 +140,14 @@ public class Cell {
     /**
      * Creates and / or sets the northwestern cell.
      * 
-     * precondition:    
+     * precondition:    northernCell or westernCell is not null
      * postcondition:   northernCell.westernCell == westernCell.northernCell
      *
      * @return the eastern cell
      */
     private void createNorthwesternCell() {
+        assert northernCell != null || westernCell != null;
+        
         if (northernCell != null && northernCell.westernCell != null) {
             westernCell.setNorthernCell(northernCell.westernCell);
         } else if (westernCell != null && westernCell.northernCell != null) {
@@ -159,12 +163,14 @@ public class Cell {
     /**
      * Creates and / or sets the southeastern cell.
      * 
-     * precondition:    
+     * precondition:    southernCell or easternCell is not null
      * postcondition:   southernCell.easternCell == easternCell.southernCell
      *
      * @return the eastern cell
      */
     private void createSoutheasternCell() {
+        assert southernCell != null || easternCell != null;
+        
         if (southernCell != null && southernCell.easternCell != null) {
             easternCell.setSouthernCell(southernCell.easternCell);
         } else if (easternCell != null && easternCell.southernCell != null) {
@@ -180,11 +186,13 @@ public class Cell {
     /**
      * Creates and / or sets the southwestern cell.
      * 
-     * precondition:    
+     * precondition:    southernCell or westernCell is not null
      * postcondition:   southernCell.westernCell == westernCell.southernCell
      * 
      */
     private void createSouthwesternCell() {
+        assert southernCell != null || westernCell != null;
+        
         if (southernCell != null && southernCell.westernCell != null) {
             westernCell.setSouthernCell(southernCell.westernCell);
         } else if (westernCell != null && westernCell.southernCell != null) {
@@ -199,9 +207,6 @@ public class Cell {
 
     /**
      * Returns the cell to the north of this one. If this cell does not exist yet, it creates it.
-     * 
-     * precondition:    
-     * postcondition:   
      *
      * @return the northern cell
      */
@@ -225,9 +230,6 @@ public class Cell {
 
     /**
      * Returns the cell to the south of this one. If this cell does not exist yet, it creates it.
-     * 
-     * precondition:    
-     * postcondition:   
      *
      * @return the southern cell
      */
@@ -240,8 +242,17 @@ public class Cell {
 
         return southernCell;
     }
-    
+
+    /**
+     * Creates the southern cell.
+     * 
+     * precondition:    southernCell is null
+     * postcondition:   southernCell.northernCell == this cell
+     * 
+     */    
     private void createSouthernCell() {
+        assert southernCell == null;
+        
         setSouthernCell(new Cell(grid));
 
         if (easternCell != null) {
@@ -251,9 +262,20 @@ public class Cell {
         if (westernCell != null) {
             createSouthwesternCell();
         }
+        
+        assert Objects.equals(southernCell.northernCell, this);
     }
-    
+ 
+     /**
+     * Creates the western cell.
+     * 
+     * precondition:    westernCell is null
+     * postcondition:   westernCell.easternCell == this cell
+     * 
+     */      
     private void createWesternCell() {
+        assert westernCell == null;
+        
         setWesternCell(new Cell(grid));
 
         if (northernCell != null) {
@@ -263,6 +285,8 @@ public class Cell {
         if (southernCell != null) {
             createSouthwesternCell();
         }
+        
+        assert Objects.equals(westernCell.easternCell, this);
     }
 
     /**
