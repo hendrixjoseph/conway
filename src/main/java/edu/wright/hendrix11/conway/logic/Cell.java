@@ -77,6 +77,9 @@ public class Cell {
 
     /**
      * Returns the cell to the east of this one. If this cell does not exist yet, it creates it.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the eastern cell
      */
@@ -110,6 +113,9 @@ public class Cell {
 
     /**
      * Returns the cell to the north of this one. If this cell does not exist yet, it creates it.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the northern cell
      */
@@ -143,6 +149,9 @@ public class Cell {
 
     /**
      * Returns the cell to the south of this one. If this cell does not exist yet, it creates it.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the southern cell
      */
@@ -176,6 +185,9 @@ public class Cell {
 
     /**
      * Returns the cell to the west of this one. If this cell does not exist yet, it creates it.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the western cell
      */
@@ -210,6 +222,9 @@ public class Cell {
     /**
      * Returns the set of neighbors to this cell. Every cell has exactly 8 unique neighbors: four from the cardinal
      * directions and four from the diagonal directions.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the set of neighbors
      */
@@ -243,6 +258,9 @@ public class Cell {
      * Counts and returns the number of living neighbors. Since every cell has exactly eight neighbors, it can have at
      * most 8 living neighbors. No neighbor is required to be alive, however, so it can also have as few as 0 living
      * neighbors.
+     * 
+     * precondition:    
+     * postcondition:   
      *
      * @return the number of living neighbors
      */
@@ -285,6 +303,10 @@ public class Cell {
      *
      * This method will also add or remove the cell from the living cell list in the {@link Grid} it is associated with,
      * depending if it is now alive or dead.
+     * 
+     * precondition:    
+     * postcondition:   
+     *
      */
     public void toggle() {
         alive = !alive;
