@@ -166,10 +166,10 @@ public class Cell {
         neighbors.add(southernCell.getEasternCell());
         neighbors.add(southernCell.getWesternCell());
 
-        assert neighbors.size() == 8 && !neighbors.contains(null) && neighbors.contains(northernCell)
-                && neighbors.contains(southernCell) && neighbors.contains(easternCell) && neighbors.contains(westernCell)
-                && neighbors.contains(northernCell.easternCell) && neighbors.contains(northernCell.westernCell)
-                && neighbors.contains(southernCell.easternCell) && neighbors.contains(southernCell.westernCell);
+        assert neighbors.size() == 8 && !neighbors.contains(null) && neighbors.contains(northernCell) && neighbors
+                .contains(southernCell) && neighbors.contains(easternCell) && neighbors.contains(westernCell) &&
+                neighbors.contains(northernCell.easternCell) && neighbors.contains(northernCell.westernCell) &&
+                neighbors.contains(southernCell.easternCell) && neighbors.contains(southernCell.westernCell);
         assert classInv();
 
         return neighbors;
@@ -264,13 +264,13 @@ public class Cell {
     /**
      * Creates and / or sets the northeastern cell.
      * <p>
-     * <pre>precondition:    northernCell and easternCell is not null 
+     * <pre>precondition:    northernCell and easternCell is not null
      *                      northernCell.easternCell and easternCell.northernCell is null
      * postcondition:   northernCell.easternCell == easternCell.northernCell</pre>
      */
     private void createNortheasternCell() {
-        assert northernCell != null && easternCell != null
-                && (northernCell.easternCell == null || easternCell.northernCell == null);
+        assert northernCell != null && easternCell != null && (northernCell.easternCell == null || easternCell
+                .northernCell == null);
 
         if (northernCell != null && easternCell != null) {
             if (northernCell.easternCell != null) {

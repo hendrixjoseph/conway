@@ -28,17 +28,17 @@ public class Pattern {
      * The name is not null, the pattern list is not null, and no element in the pattern list is null.
      */
     private boolean classInv() {
-        boolean invarient = name != null && pattern != null;
+        boolean invariant = name != null && pattern != null;
 
         if (pattern != null) {
             for (String string : pattern) {
                 if (string == null) {
-                    invarient = false;
+                    invariant = false;
                 }
             }
         }
 
-        return invarient;
+        return invariant;
     }
 
     /**
@@ -72,7 +72,7 @@ public class Pattern {
 
     /**
      * The string representation of this pattern, which is its name.
-     */ 
+     */
     @Override
     public String toString() {
         return name;

@@ -78,12 +78,12 @@ public class Grid {
     }
 
     /**
-     * Checks each neighbor of each cell in aliveCells to see if it needs to become alive, according to Conway's rules. If so,
-     * it adds it to the set passed in as a parameter.
-     * 
+     * Checks each neighbor of each cell in aliveCells to see if it needs to become alive, according to Conway's rules.
+     * If so, it adds it to the set passed in as a parameter.
+     * <p>
      * <pre>precondition:
      * postcondition:</pre>
-     * 
+     *
      * @param toggleTheseCells the cells to toggle
      */
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
@@ -136,12 +136,12 @@ public class Grid {
     }
 
     /**
-     * Checks each cell in aliveCells to see if it needs to die, according to Conway's rules. If so,
-     * it adds it to the set passed in as a parameter.
-     * 
+     * Checks each cell in aliveCells to see if it needs to die, according to Conway's rules. If so, it adds it to the
+     * set passed in as a parameter.
+     * <p>
      * <pre>precondition:
      * postcondition:</pre>
-     * 
+     *
      * @param toggleTheseCells the cells to toggle
      */
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
@@ -154,7 +154,7 @@ public class Grid {
 
     /**
      * Toggles all the cells passed in as a parameter.
-     * 
+     *
      * @param toggleTheseCells the cells to toggle
      */
     private void toggleCells(Set<Cell> toggleTheseCells) {
@@ -178,8 +178,8 @@ public class Grid {
     }
 
     /**
-     * Removes a dead cell from the aliveCells set. This method is package-private and is called explicitly by the {@link
-     * Cell} class.
+     * Removes a dead cell from the aliveCells set. This method is package-private and is called explicitly by the
+     * {@link Cell} class.
      * <p>
      * <pre>precondition:    cell is not alive
      * postcondition:   cell is not in aliveCells</pre>
