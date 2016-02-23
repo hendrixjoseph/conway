@@ -77,6 +77,15 @@ public class Grid {
         assert classInv();
     }
 
+    /**
+     * Checks each neighbor of each cell in aliveCells to see if it needs to become alive, according to Conway's rules. If so,
+     * it adds it to the set passed in as a parameter.
+     * 
+     * <pre>precondition:
+     * postcondition:</pre>
+     * 
+     * @param toggleTheseCells the cells to toggle
+     */
     private void checkAdjacentDeadCells(Set<Cell> toggleTheseCells) {
         aliveCells.forEach(cell -> cell.getNeighbors().forEach(neighbor -> {
             if (!neighbor.isAlive() && checkDeadCell(neighbor)) {
@@ -127,8 +136,13 @@ public class Grid {
     }
 
     /**
+     * Checks each cell in aliveCells to see if it needs to die, according to Conway's rules. If so,
+     * it adds it to the set passed in as a parameter.
+     * 
      * <pre>precondition:
      * postcondition:</pre>
+     * 
+     * @param toggleTheseCells the cells to toggle
      */
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
         aliveCells.forEach(cell -> {
@@ -138,6 +152,11 @@ public class Grid {
         });
     }
 
+    /**
+     * Toggles all the cells passed in as a parameter.
+     * 
+     * @param toggleTheseCells the cells to toggle
+     */
     private void toggleCells(Set<Cell> toggleTheseCells) {
         toggleTheseCells.forEach(Cell::toggle);
     }
