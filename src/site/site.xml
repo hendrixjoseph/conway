@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0">
+    <body>
+        <head>
+            <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css' />
+            <link href="http://hendrixjoseph.github.io/FamilyTree/images/Family-Tree.ico?" rel="shortcut icon"
+                  type="image/x-icon" />
+        </head>
+        <links>
+            <item name="GitHub" href="https://github.com/hendrixjoseph/FamilyTree" />
+        </links>
+        <menu ref="modules" />
+        <menu ref="reports" />
+        <menu name="Documentation">
+            <item name="JavaDoc" href="apidocs/index.html" />
+        </menu>
+    </body>
+</project>
