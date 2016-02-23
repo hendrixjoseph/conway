@@ -25,9 +25,8 @@ public class Pattern {
     }
 
     /**
-     * The name is not null, the pattern list is not null, and no element in the pattern
-     * list is null.
-     */ 
+     * The name is not null, the pattern list is not null, and no element in the pattern list is null.
+     */
     private boolean classInv() {
         boolean invarient = true;
 
@@ -46,14 +45,12 @@ public class Pattern {
 
     /**
      * Generates the pattern specified in pattern.
-     * 
-     * precondition:    seed is not null
-     * postcondition:   
-     * 
+     * <p>
+     * precondition:    seed is not null postcondition:
      */
     public void generate(Cell seed) {
         assert seed != null;
-        
+
         Cell outterCell = seed;
 
         for (String row : pattern) {
