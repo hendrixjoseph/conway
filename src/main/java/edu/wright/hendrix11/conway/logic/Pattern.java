@@ -28,9 +28,7 @@ public class Pattern {
      * The name is not null, the pattern list is not null, and no element in the pattern list is null.
      */
     private boolean classInv() {
-        boolean invarient = true;
-
-        invarient = name != null && pattern != null;
+        boolean invarient = name != null && pattern != null;
 
         if (pattern != null) {
             for (String string : pattern) {

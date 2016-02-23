@@ -49,7 +49,7 @@ public class Main extends Application {
         bottomMenu.addPatterns(loadPatterns());
         VisibleGrid visibleGrid = new VisibleGrid(gameGrid, 30, bottomMenu::getPattern);
 
-        group.getChildren().add(new TopMenu(pattern -> bottomMenu.addPattern(pattern)));
+        group.getChildren().add(new TopMenu(bottomMenu::addPattern));
         group.getChildren().add(visibleGrid);
         group.getChildren().add(bottomMenu);
 

@@ -137,7 +137,7 @@ public class Grid {
     }
 
     /**
-     * Adds a living cell to the aliveCells set. This method is package-private and is called explicity by the {@link
+     * Adds a living cell to the aliveCells set. This method is package-private and is called explicitly by the {@link
      * Cell} class.
      * <p>
      * precondition:    cell is alive postcondition:   cell is in aliveCells
@@ -152,7 +152,7 @@ public class Grid {
     }
 
     /**
-     * Removes a dead cell from the aliveCells set. This method is package-private and is called explicity by the {@link
+     * Removes a dead cell from the aliveCells set. This method is package-private and is called explicitly by the {@link
      * Cell} class.
      * <p>
      * precondition:    cell is not alive postcondition:   cell is not in aliveCells
