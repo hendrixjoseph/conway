@@ -34,8 +34,9 @@ public class Grid {
      * Empties the aliveCells set by toggling each living cell. The now-dead cell will remove itself from the aliveCell
      * set.
      * <p>
-     * precondition:    aliveCells is not null postcondition:   aliveCells is empty and all cells that were in
-     * aliveCells are not alive
+     * <pre>precondition:    aliveCells is not null
+     * postcondition:   aliveCells is empty
+     *                  all cells that were in aliveCells are not alive</pre>
      */
     public void clear() {
         // The copy prevents a java.util.ConcurrentModificationException
@@ -56,8 +57,10 @@ public class Grid {
      * Ticks or cycles through one generation. All cells must be checked before they are toggled in order to prevent
      * them from affecting an adjacent cell's outcome.
      * <p>
-     * precondition: postcondition:   the new generation is exactly one higher than the old generation any cells that
-     * are now alive are in aliveCells any cells that are now dead are not in aliveCells
+     * <pre>precondition:
+     * postcondition:   the new generation is exactly one higher than the old generation
+     *                  any cells that are now alive are in aliveCells
+     *                  any cells that are now dead are not in aliveCells</pre>
      */
     public void tick() {
         assert classInv();
@@ -89,7 +92,8 @@ public class Grid {
      * <ol start="4"> <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by
      * reproduction.</li> </ol>
      * <p>
-     * precondition:    deadCell is not alive postcondition:
+     * <pre>precondition:    deadCell is not alive
+     * postcondition:</pre>
      *
      * @return true if it should become alive, false otherwise
      */
@@ -109,7 +113,8 @@ public class Grid {
      * live cell with two or three live neighbours lives on to the next generation.</li> <li>Any live cell with more
      * than three live neighbours dies, as if by over-population.</li> </ol>
      * <p>
-     * precondition:    livingCell is alive postcondition:
+     * <pre>precondition:    livingCell is alive
+     * postcondition:</pre>
      *
      * @return true if it should die, false otherwise
      */
@@ -122,7 +127,8 @@ public class Grid {
     }
 
     /**
-     * precondition: postcondition:
+     * <pre>precondition:
+     * postcondition:</pre>
      */
     private void checkLivingCells(Set<Cell> toggleTheseCells) {
         aliveCells.forEach(cell -> {
@@ -140,7 +146,8 @@ public class Grid {
      * Adds a living cell to the aliveCells set. This method is package-private and is called explicitly by the {@link
      * Cell} class.
      * <p>
-     * precondition:    cell is alive postcondition:   cell is in aliveCells
+     * <pre>precondition:    cell is alive
+     * postcondition:   cell is in aliveCells</pre>
      */
     void addLivingCell(Cell cell) {
         assert cell.isAlive();
@@ -155,7 +162,8 @@ public class Grid {
      * Removes a dead cell from the aliveCells set. This method is package-private and is called explicitly by the {@link
      * Cell} class.
      * <p>
-     * precondition:    cell is not alive postcondition:   cell is not in aliveCells
+     * <pre>precondition:    cell is not alive
+     * postcondition:   cell is not in aliveCells</pre>
      */
     void removeDeadCell(Cell cell) {
         assert !cell.isAlive();
