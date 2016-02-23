@@ -147,7 +147,9 @@ public class Cell {
      * Returns the set of neighbors to this cell. Every cell has exactly 8 unique neighbors: four from the cardinal
      * directions and four from the diagonal directions.
      * <p>
-     * precondition: postcondition:
+     * <pre>precondition:
+     * postcondition:   the returned set is of size 8 containing each of the cardinal and diagonal cells;
+     *                  none of these cells are null</pre>
      *
      * @return the set of neighbors
      */
@@ -164,14 +166,15 @@ public class Cell {
         neighbors.add(southernCell.getEasternCell());
         neighbors.add(southernCell.getWesternCell());
 
-        assert neighbors.size() == 8 && northernCell != null && westernCell != null && easternCell != null &&
-                southernCell != null && northernCell.easternCell != null && northernCell.westernCell != null &&
-                southernCell.easternCell != null && southernCell.westernCell != null : "\nneighbors.size(): " +
-                neighbors.size() + "\nnorthernCell: " + northernCell + "\nwesternCell: " + westernCell +
-                "\neasternCell: " + easternCell + "\nsouthernCell: " + southernCell + "\nnorthernCell.easternCell: "
-                + northernCell.easternCell + "\nnorthernCell.westernCell: " + northernCell.westernCell +
-                "\nsouthernCell.easternCell: " + southernCell.easternCell + "\nsouthernCell.westernCell: " +
-                southernCell.westernCell;
+        assert neighbors.size() == 8 && !neighbors.contains(null) && neighbors.contains(northernCell)
+                && neighbors.contains(westernCell) && neighbors.contains(easternCell) && neighbors.contains(westernCell)
+                && neighbors.contains(northernCell.easternCell) && neighbors.contains(northernCell.westernCell)
+                && neighbors.contains(southernCell.easternCell) && neighbors.contains(southernCell.westernCell)
+                : "\nneighbors.size(): " + neighbors.size() + "\nnorthernCell: " + northernCell + "\nwesternCell: "
+                + westernCell + "\neasternCell: " + easternCell + "\nsouthernCell: " + southernCell
+                + "\nnorthernCell.easternCell: " + northernCell.easternCell + "\nnorthernCell.westernCell: "
+                + northernCell.westernCell + "\nsouthernCell.easternCell: " + southernCell.easternCell
+                + "\nsouthernCell.westernCell: " + southernCell.westernCell;
         assert classInv();
 
         return neighbors;
@@ -182,7 +185,8 @@ public class Cell {
      * most 8 living neighbors. No neighbor is required to be alive, however, so it can also have as few as 0 living
      * neighbors.
      * <p>
-     * precondition: postcondition:
+     * <pre>precondition:
+     * postcondition:   the count ranges from 0 to 8</pre>
      *
      * @return the number of living neighbors
      */
@@ -223,7 +227,8 @@ public class Cell {
      * This method will also add or remove the cell from the living cell list in the {@link Grid} it is associated with,
      * depending if it is now alive or dead.
      * <p>
-     * precondition: postcondition:
+     * <pre>precondition:
+     * postcondition:</pre>
      */
     public void toggle() {
         alive = !alive;
@@ -242,8 +247,8 @@ public class Cell {
     /**
      * Creates the eastern cell.
      * <p>
-     * precondition:    easternCell is null postcondition:   easternCell.westernCell == this cell
-     *
+     * <pre>precondition:    easternCell is null
+     * postcondition:   easternCell.westernCell == this cell</pre>
      */
     private void createEasternCell() {
         assert easternCell == null;
@@ -264,21 +269,23 @@ public class Cell {
     /**
      * Creates and / or sets the northeastern cell.
      * <p>
-     * precondition:    northernCell or easternCell is not null
-     * <p>
-     * postcondition:   northernCell.easternCell == easternCell.northernCell
-     *
+     * <pre>precondition:    northernCell and easternCell is not null northernCell.easternCell and
+     * easternCell.northernCell is null
+     * postcondition:   northernCell.easternCell == easternCell.northernCell</pre>
      */
     private void createNortheasternCell() {
-        assert northernCell != null || easternCell != null;
+        assert northernCell != null && easternCell != null
+                && (northernCell.easternCell == null || easternCell.northernCell == null);
 
-        if (northernCell != null && northernCell.easternCell != null) {
-            easternCell.setNorthernCell(northernCell.easternCell);
-        } else if (easternCell != null && easternCell.northernCell != null) {
-            northernCell.setEasternCell(easternCell.northernCell);
-        } else if (northernCell != null && easternCell != null) {
-            easternCell.setNorthernCell(new Cell(grid));
-            northernCell.setEasternCell(easternCell.northernCell);
+        if (northernCell != null && easternCell != null) {
+            if (northernCell.easternCell != null) {
+                easternCell.setNorthernCell(northernCell.easternCell);
+            } else if (easternCell.northernCell != null) {
+                northernCell.setEasternCell(easternCell.northernCell);
+            } else {
+                easternCell.setNorthernCell(new Cell(grid));
+                northernCell.setEasternCell(easternCell.northernCell);
+            }
         }
 
         assert Objects.equals(northernCell.easternCell, easternCell.northernCell);
@@ -287,20 +294,23 @@ public class Cell {
     /**
      * Creates and / or sets the northwestern cell.
      * <p>
-     * precondition:    northernCell or westernCell is not null
-     * <p>
-     * postcondition:   northernCell.westernCell == westernCell.northernCell
+     * <pre>precondition:    northernCell and westernCell is not null and northernCell.westernCell or
+     * westernCell.northernCell is null
+     * postcondition:   northernCell.westernCell == westernCell.northernCell</pre>
      */
     private void createNorthwesternCell() {
-        assert northernCell != null || westernCell != null;
+        assert northernCell != null && westernCell != null && (northernCell.westernCell == null || westernCell
+                .northernCell == null);
 
-        if (northernCell != null && northernCell.westernCell != null) {
-            westernCell.setNorthernCell(northernCell.westernCell);
-        } else if (westernCell != null && westernCell.northernCell != null) {
-            northernCell.setWesternCell(westernCell.northernCell);
-        } else {
-            westernCell.setNorthernCell(new Cell(grid));
-            northernCell.setWesternCell(westernCell.northernCell);
+        if (northernCell != null && westernCell != null) {
+            if (northernCell.westernCell != null) {
+                westernCell.setNorthernCell(northernCell.westernCell);
+            } else if (westernCell.northernCell != null) {
+                northernCell.setWesternCell(westernCell.northernCell);
+            } else {
+                westernCell.setNorthernCell(new Cell(grid));
+                northernCell.setWesternCell(westernCell.northernCell);
+            }
         }
 
         assert Objects.equals(northernCell.westernCell, westernCell.northernCell);
@@ -309,21 +319,23 @@ public class Cell {
     /**
      * Creates and / or sets the southeastern cell.
      * <p>
-     * precondition:    southernCell or easternCell is not null
-     * <p>
-     * postcondition:   southernCell.easternCell == easternCell.southernCell
-     *
+     * <pre>precondition:    southernCell and easternCell is not null and southernCell.easternCell or
+     * easternCell.southernCell is null
+     * postcondition:   southernCell.easternCell == easternCell.southernCell</pre>
      */
     private void createSoutheasternCell() {
-        assert southernCell != null || easternCell != null;
+        assert southernCell != null && easternCell != null && (southernCell.easternCell == null || easternCell
+                .southernCell == null);
 
-        if (southernCell != null && southernCell.easternCell != null) {
-            easternCell.setSouthernCell(southernCell.easternCell);
-        } else if (easternCell != null && easternCell.southernCell != null) {
-            southernCell.setEasternCell(easternCell.southernCell);
-        } else {
-            easternCell.setSouthernCell(new Cell(grid));
-            southernCell.setEasternCell(easternCell.southernCell);
+        if (southernCell != null && easternCell != null) {
+            if (southernCell.easternCell != null) {
+                easternCell.setSouthernCell(southernCell.easternCell);
+            } else if (easternCell.southernCell != null) {
+                southernCell.setEasternCell(easternCell.southernCell);
+            } else {
+                easternCell.setSouthernCell(new Cell(grid));
+                southernCell.setEasternCell(easternCell.southernCell);
+            }
         }
 
         assert Objects.equals(southernCell.easternCell, easternCell.southernCell);
@@ -332,7 +344,8 @@ public class Cell {
     /**
      * Creates the southern cell.
      * <p>
-     * precondition:    southernCell is null postcondition:   southernCell.northernCell == this cell
+     * <pre>precondition:    southernCell is null
+     * postcondition:   southernCell.northernCell == this cell</pre>
      */
     private void createSouthernCell() {
         assert southernCell == null;
@@ -353,19 +366,23 @@ public class Cell {
     /**
      * Creates and / or sets the southwestern cell.
      * <p>
-     * precondition:    southernCell or westernCell is not null postcondition:   southernCell.westernCell ==
-     * westernCell.southernCell
+     * <pre>precondition:    southernCell and westernCell is not null and either southernCell.westernCell or
+     * westernCell.southernCell is null
+     * postcondition:   southernCell.westernCell == westernCell.southernCell</pre>
      */
     private void createSouthwesternCell() {
-        assert southernCell != null || westernCell != null;
+        assert southernCell != null && westernCell != null && (southernCell.westernCell == null || westernCell
+                .southernCell == null);
 
-        if (southernCell != null && southernCell.westernCell != null) {
-            westernCell.setSouthernCell(southernCell.westernCell);
-        } else if (westernCell != null && westernCell.southernCell != null) {
-            southernCell.setWesternCell(westernCell.southernCell);
-        } else {
-            westernCell.setSouthernCell(new Cell(grid));
-            southernCell.setWesternCell(westernCell.southernCell);
+        if (southernCell != null && westernCell != null) {
+            if (southernCell.westernCell != null) {
+                westernCell.setSouthernCell(southernCell.westernCell);
+            } else if (westernCell.southernCell != null) {
+                southernCell.setWesternCell(westernCell.southernCell);
+            } else {
+                westernCell.setSouthernCell(new Cell(grid));
+                southernCell.setWesternCell(westernCell.southernCell);
+            }
         }
 
         assert Objects.equals(southernCell.westernCell, westernCell.southernCell);
