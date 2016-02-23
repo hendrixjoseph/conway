@@ -44,7 +44,8 @@ public class Pattern {
     /**
      * Generates the pattern specified in pattern.
      * <p>
-     * precondition:    seed is not null postcondition:
+     * <pre>precondition:    seed is not null
+     * postcondition:</pre>
      */
     public void generate(Cell seed) {
         assert seed != null;
@@ -69,6 +70,9 @@ public class Pattern {
         assert classInv();
     }
 
+    /**
+     * The string representation of this pattern, which is its name.
+     */ 
     @Override
     public String toString() {
         return name;
