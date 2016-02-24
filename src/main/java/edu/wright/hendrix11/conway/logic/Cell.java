@@ -147,9 +147,11 @@ public class Cell {
      * Returns the set of neighbors to this cell. Every cell has exactly 8 unique neighbors: four from the cardinal
      * directions and four from the diagonal directions.
      * <p>
-     * <pre>precondition:
+     * <pre>
+     * precondition:
      * postcondition:   the returned set is of size 8 containing each of the cardinal and diagonal cells;
-     *                  none of these cells are null</pre>
+     *                  none of these cells are null
+     * </pre>
      *
      * @return the set of neighbors
      */
@@ -180,8 +182,10 @@ public class Cell {
      * most 8 living neighbors. No neighbor is required to be alive, however, so it can also have as few as 0 living
      * neighbors.
      * <p>
-     * <pre>precondition:
-     * postcondition:   the count ranges from 0 to 8</pre>
+     * <pre>
+     * precondition:
+     * postcondition:   the count ranges from 0 to 8
+     * </pre>
      *
      * @return the number of living neighbors
      */
@@ -222,8 +226,10 @@ public class Cell {
      * This method will also add or remove the cell from the living cell list in the {@link Grid} it is associated with,
      * depending if it is now alive or dead.
      * <p>
-     * <pre>precondition:
-     * postcondition:   before alive == after !alive</pre>
+     * <pre>
+     * precondition:
+     * postcondition:   before alive == after !alive
+     * </pre>
      */
     public void toggle() {
         alive = !alive;
@@ -242,8 +248,10 @@ public class Cell {
     /**
      * Creates the eastern cell.
      * <p>
-     * <pre>precondition:    easternCell is null
-     * postcondition:   easternCell.westernCell == this cell</pre>
+     * <pre>
+     * precondition:    easternCell is null
+     * postcondition:   easternCell.westernCell == this cell
+     * </pre>
      */
     private void createEasternCell() {
         assert easternCell == null;
@@ -264,9 +272,11 @@ public class Cell {
     /**
      * Creates and / or sets the northeastern cell.
      * <p>
-     * <pre>precondition:    northernCell and easternCell is not null
-     *                      northernCell.easternCell and easternCell.northernCell is null
-     * postcondition:   northernCell.easternCell == easternCell.northernCell</pre>
+     * <pre>
+     * precondition:    northernCell and easternCell is not null
+     *                  northernCell.easternCell and easternCell.northernCell is null
+     * postcondition:   northernCell.easternCell == easternCell.northernCell
+     * </pre>
      */
     private void createNortheasternCell() {
         assert northernCell != null && easternCell != null && (northernCell.easternCell == null || easternCell
@@ -289,9 +299,11 @@ public class Cell {
     /**
      * Creates and / or sets the northwestern cell.
      * <p>
-     * <pre>precondition:    both northernCell and westernCell are not null
-     *                      either northernCell.westernCell or westernCell.northernCell is null
-     * postcondition:   northernCell.westernCell == westernCell.northernCell</pre>
+     * <pre>
+     * precondition:    both northernCell and westernCell are not null
+     *                  either northernCell.westernCell or westernCell.northernCell is null
+     * postcondition:   northernCell.westernCell == westernCell.northernCell
+     * </pre>
      */
     private void createNorthwesternCell() {
         assert northernCell != null && westernCell != null && (northernCell.westernCell == null || westernCell
@@ -314,9 +326,11 @@ public class Cell {
     /**
      * Creates and / or sets the southeastern cell.
      * <p>
-     * <pre>precondition:    both southernCell and easternCell are not null
-     *                      either southernCell.easternCell or easternCell.southernCell is null
-     * postcondition:   southernCell.easternCell == easternCell.southernCell</pre>
+     * <pre>
+     * precondition:    both southernCell and easternCell are not null
+     *                  either southernCell.easternCell or easternCell.southernCell is null
+     * postcondition:   southernCell.easternCell == easternCell.southernCell
+     * </pre>
      */
     private void createSoutheasternCell() {
         assert southernCell != null && easternCell != null && (southernCell.easternCell == null || easternCell
@@ -339,8 +353,10 @@ public class Cell {
     /**
      * Creates the southern cell.
      * <p>
-     * <pre>precondition:    southernCell is null
-     * postcondition:   southernCell.northernCell == this cell</pre>
+     * <pre>
+     * precondition:    southernCell is null
+     * postcondition:   southernCell.northernCell == this cell
+     * </pre>
      */
     private void createSouthernCell() {
         assert southernCell == null;
@@ -361,9 +377,11 @@ public class Cell {
     /**
      * Creates and / or sets the southwestern cell.
      * <p>
-     * <pre>precondition:    both southernCell and westernCell are not null
-     *                      either southernCell.westernCell or westernCell.southernCell is null
-     * postcondition:   southernCell.westernCell == westernCell.southernCell</pre>
+     * <pre>
+     * precondition:    both southernCell and westernCell are not null
+     *                  either southernCell.westernCell or westernCell.southernCell is null
+     * postcondition:   southernCell.westernCell == westernCell.southernCell
+     * </pre>
      */
     private void createSouthwesternCell() {
         assert southernCell != null && westernCell != null && (southernCell.westernCell == null || westernCell
@@ -386,8 +404,10 @@ public class Cell {
     /**
      * Creates the western cell.
      * <p>
-     * <pre>precondition:    westernCell is null
-     * postcondition:   westernCell.easternCell == this cell</pre>
+     * <pre>
+     * precondition:    westernCell is null
+     * postcondition:   westernCell.easternCell == this cell
+     * </pre>
      */
     private void createWesternCell() {
         assert westernCell == null;
@@ -409,8 +429,10 @@ public class Cell {
      * Sets the eastern cell, then sets the eastern cell's western cell to this. This method should only be called if
      * eastern cell has not been set yet.
      * <p>
-     * <pre>precondition:    this.easternCell is null
-     * postcondition:   this.easternCell.westernCell == this cell</pre>
+     * <pre>
+     * precondition:    this.easternCell is null
+     * postcondition:   this.easternCell.westernCell == this cell
+     * </pre>
      *
      * @param easternCell
      */
@@ -427,8 +449,10 @@ public class Cell {
      * Sets the northern cell, then sets the northern cell's southern cell to this. This method should only be called if
      * northern cell has not been set yet.
      * <p>
-     * <pre>precondition:    this.northernCell is null
-     * postcondition:   this.northernCell.southernCell == this cell</pre>
+     * <pre>
+     * precondition:    this.northernCell is null
+     * postcondition:   this.northernCell.southernCell == this cell
+     * </pre>
      *
      * @param northernCell
      */
@@ -445,8 +469,10 @@ public class Cell {
      * Sets the southern cell, then sets the southern cell's northern cell to this. This method should only be called if
      * eastern cell has not been set yet.
      * <p>
-     * <pre>precondition:    this.southernCell is null
-     * postcondition:   this.southernCell.northernCell == this cell</pre>
+     * <pre>
+     * precondition:    this.southernCell is null
+     * postcondition:   this.southernCell.northernCell == this cell
+     * </pre>
      *
      * @param southernCell
      */
@@ -463,8 +489,10 @@ public class Cell {
      * Sets the western cell, then sets the western cell's eastern cell to this. This method should only be called if
      * eastern cell has not been set yet.
      * <p>
-     * <pre>precondition:    this.easternCell is null
-     * postcondition:   this.easternCell.westernCell == this cell</pre>
+     * <pre>
+     * precondition:    this.easternCell is null
+     * postcondition:   this.easternCell.westernCell == this cell
+     * </pre>
      *
      * @param westernCell
      */
