@@ -33,6 +33,12 @@ public class VisibleGrid extends GridPane {
     }
 
     /**
+     *
+     * <pre>
+     * precondition:
+     * postcondition:
+     * </pre>
+     *
      * @param rows
      * @param columns
      * @param gameGrid

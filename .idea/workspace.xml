@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5b3ce8fb-f655-4bf4-94cc-a5152d64d057" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" afterPath="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
     </list>
     <ignored path="conway.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="296" column="5" selection-start-line="296" selection-start-column="5" selection-end-line="296" selection-end-column="5" />
+              <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="159" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -44,22 +45,22 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="181" column="26" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="26" />
+              <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
               <folding>
-                <marker date="1456269401194" expanded="true" signature="649:803" placeholder="/**...*/" />
-                <marker date="1456269401194" expanded="true" signature="5775:5783" placeholder="/**...*/" />
+                <marker date="1456362386186" expanded="true" signature="720:874" placeholder="/**...*/" />
+                <marker date="1456362386186" expanded="true" signature="5846:5854" placeholder="/**...*/" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pattern.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45061728">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
-                <marker date="1456270189968" expanded="true" signature="1089:1162" placeholder="/**...*/" />
+                <marker date="1456362404649" expanded="true" signature="1160:1233" placeholder="/**...*/" />
               </folding>
             </state>
           </provider>
@@ -85,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BottomMenu.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BottomMenu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="126" column="6" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.43209878">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -99,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -109,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+              <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -158,14 +159,14 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/TopMenu.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/BottomMenu.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java" />
       </list>
     </option>
   </component>
@@ -1030,20 +1031,11 @@
       <workItem from="1456268420579" duration="981000" />
       <workItem from="1456269808723" duration="410000" />
       <workItem from="1456277838395" duration="599000" />
-      <workItem from="1456361051265" duration="647000" />
+      <workItem from="1456361051265" duration="2707000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainTest - 2016.02.20 at 21h 48m 18s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 21h 50m 20s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest - 2016.02.20 at 22h 05m 56s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MainTest - 2016.02.20 at 22h 26m 48s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
@@ -1065,13 +1057,22 @@
     <history-entry file="MainTest - 2016.02.24 at 19h 54m 45s.xml">
       <configuration name="MainTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MainTest - 2016.02.24 at 20h 22m 23s.xml">
+      <configuration name="MainTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest - 2016.02.24 at 20h 23m 14s.xml">
+      <configuration name="MainTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest - 2016.02.24 at 20h 25m 08s.xml">
+      <configuration name="MainTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94103000" />
+    <option name="totallyTimeSpent" value="96163000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1080,7 +1081,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.160625" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1618,41 +1619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="181" column="26" selection-start-line="181" selection-start-column="26" selection-end-line="181" selection-end-column="26" />
-          <folding>
-            <marker date="1456269401194" expanded="true" signature="649:803" placeholder="/**...*/" />
-            <marker date="1456269401194" expanded="true" signature="5775:5783" placeholder="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="6" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/TopMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1669,21 +1635,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Grid.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="296" column="5" selection-start-line="296" selection-start-column="5" selection-end-line="296" selection-end-column="5" />
-          <folding />
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+          <folding>
+            <marker date="1456362386186" expanded="true" signature="720:874" placeholder="/**...*/" />
+            <marker date="1456362386186" expanded="true" signature="5846:5854" placeholder="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Pattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45061728">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
           <folding>
-            <marker date="1456270189968" expanded="true" signature="1089:1162" placeholder="/**...*/" />
+            <marker date="1456362404649" expanded="true" signature="1160:1233" placeholder="/**...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/logic/Cell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="159" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/CellPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/grid/VisibleGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/wright/hendrix11/conway/gui/menu/BottomMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43209878">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

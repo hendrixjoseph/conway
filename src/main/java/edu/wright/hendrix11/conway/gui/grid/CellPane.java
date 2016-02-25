@@ -19,12 +19,12 @@ public class CellPane extends Pane {
     private Supplier<Pattern> patternSupplier;
 
     /**
-     * @param cell
-     * @param stringSupplier
+     * @param cell the cell this object owns
+     * @param patternSupplier a method that takes a cell as a parameter
      */
-    public CellPane(Cell cell, Supplier<Pattern> stringSupplier) {
+    public CellPane(Cell cell, Supplier<Pattern> patternSupplier) {
         this.cell = cell;
-        this.patternSupplier = stringSupplier;
+        this.patternSupplier = patternSupplier;
         setPrefSize(100.0f, 100.0f);
         getStyleClass().add("cell");
         setStyleClass();
@@ -34,7 +34,10 @@ public class CellPane extends Pane {
     }
 
     /**
-     * @return
+     * If the cell this class has is alive, then the style class is the living cell style class and not the dead style
+     * class. If the cell this class is not alive, then it is the other way around.
+     *
+     * @return true if the class satisfies its general contract
      */
     private boolean classInv() {
         return (cell.isAlive() && getStyleClass().contains(LIVING_CELL_STYLE_CLASS) && !getStyleClass().contains
@@ -43,14 +46,17 @@ public class CellPane extends Pane {
     }
 
     /**
-     *
+     * This is the method called when this object is clicked.
      */
     private void clicked() {
         patternSupplier.get().generate(cell);
     }
 
     /**
+     * This method is called whenever the cell this object owns is toggled. It ensures this object satisfies its
+     * general contract.
      *
+     * @see #classInv()
      */
     private void setStyleClass() {
         if (cell.isAlive()) {

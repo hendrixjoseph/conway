@@ -13,6 +13,8 @@ public class Grid {
 
     /**
      * All cells in aliveCells must be alive. The current generation can never be negative.
+     *
+     * @return true if the class satisfies its general contract
      */
     private boolean classInv() {
         boolean invariant = true;

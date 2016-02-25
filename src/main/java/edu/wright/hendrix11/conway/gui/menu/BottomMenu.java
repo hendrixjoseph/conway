@@ -29,6 +29,9 @@ public class BottomMenu extends HBox {
     private Button tickButton = new Button("Tick");
     private long waitTime = 500;
 
+    /**
+     * @param gameGrid
+     */
     public BottomMenu(Grid gameGrid) {
         super(10);
         getStyleClass().add("bottom");
@@ -51,21 +54,27 @@ public class BottomMenu extends HBox {
     }
 
     /**
-     * @param pattern
+     * Added a pattern to choose from the choice box.
+     *
+     * @param pattern the pattern
      */
     public void addPattern(Pattern pattern) {
         inputChoiceBox.getItems().add(pattern);
     }
 
     /**
-     * @param patterns
+     * Adds patterns to choose from the choice box.
+     *
+     * @param patterns a list of patterns
      */
     public void addPatterns(List<Pattern> patterns) {
         inputChoiceBox.getItems().addAll(patterns);
     }
 
     /**
-     * @return
+     * Returns the currently selected pattern.
+     *
+     * @return the currently selected pattern
      */
     public Pattern getPattern() {
         return inputChoiceBox.getValue();

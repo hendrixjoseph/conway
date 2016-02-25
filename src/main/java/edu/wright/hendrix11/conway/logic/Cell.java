@@ -21,10 +21,16 @@ public class Cell {
     private Consumer<Void> toggleHandler;
     private Cell westernCell;
 
+    /**
+     * @param grid
+     */
     public Cell(Grid grid) {
         this.grid = grid;
     }
 
+    /**
+     * @return true if the class satisfies its general contract
+     */
     private boolean classInv() {
         boolean invariant = true;
 
@@ -213,7 +219,9 @@ public class Cell {
     }
 
     /**
-     * @param toggleHandler
+     * Sets the toggle handler. This is called whenever the cell is toggled. Typically this is used to update a GUI.
+     *
+     * @param toggleHandler the method to call whenever the cell is toggled
      */
     public void onToggle(Consumer<Void> toggleHandler) {
         this.toggleHandler = toggleHandler;
@@ -273,8 +281,8 @@ public class Cell {
      * Creates and / or sets the northeastern cell.
      * <p>
      * <pre>
-     * precondition:    northernCell and easternCell is not null
-     *                  northernCell.easternCell and easternCell.northernCell is null
+     * precondition:    both northernCell and easternCell are not null
+     *                  either northernCell.easternCell or easternCell.northernCell is null
      * postcondition:   northernCell.easternCell == easternCell.northernCell
      * </pre>
      */
@@ -434,7 +442,7 @@ public class Cell {
      * postcondition:   this.easternCell.westernCell == this cell
      * </pre>
      *
-     * @param easternCell
+     * @param easternCell the eastern cell
      */
     private void setEasternCell(Cell easternCell) {
         assert this.easternCell == null : "Eastern cell already set!";
@@ -454,7 +462,7 @@ public class Cell {
      * postcondition:   this.northernCell.southernCell == this cell
      * </pre>
      *
-     * @param northernCell
+     * @param northernCell the northern cell
      */
     private void setNorthernCell(Cell northernCell) {
         assert this.northernCell == null : "Northern cell already set!";
@@ -474,7 +482,7 @@ public class Cell {
      * postcondition:   this.southernCell.northernCell == this cell
      * </pre>
      *
-     * @param southernCell
+     * @param southernCell the southern cell
      */
     private void setSouthernCell(Cell southernCell) {
         assert this.southernCell == null : "Southern cell already set!";
@@ -494,7 +502,7 @@ public class Cell {
      * postcondition:   this.easternCell.westernCell == this cell
      * </pre>
      *
-     * @param westernCell
+     * @param westernCell the western cell
      */
     private void setWesternCell(Cell westernCell) {
         assert this.westernCell == null : "Western cell already set!";

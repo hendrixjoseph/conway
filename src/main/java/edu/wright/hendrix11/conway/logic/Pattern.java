@@ -26,6 +26,8 @@ public class Pattern {
 
     /**
      * The name is not null, the pattern list is not null, and no element in the pattern list is null.
+     *
+     * @return true if the class satisfies its general contract
      */
     private boolean classInv() {
         boolean invariant = name != null && pattern != null;
