@@ -1,2 +1,2 @@
 all:
-  mvn clean package -dskipTests
+	mvn clean package -dskipTests
