@@ -18,6 +18,10 @@ public class CellPane extends Pane {
     private final Cell cell;
     private Supplier<Pattern> patternSupplier;
 
+    /**
+     * @param cell
+     * @param stringSupplier
+     */
     public CellPane(Cell cell, Supplier<Pattern> stringSupplier) {
         this.cell = cell;
         this.patternSupplier = stringSupplier;
@@ -29,16 +33,25 @@ public class CellPane extends Pane {
         assert classInv();
     }
 
+    /**
+     * @return
+     */
     private boolean classInv() {
         return (cell.isAlive() && getStyleClass().contains(LIVING_CELL_STYLE_CLASS) && !getStyleClass().contains
                 (DEAD_CELL_STYLE_CLASS)) || ((!cell.isAlive() && !getStyleClass().contains(LIVING_CELL_STYLE_CLASS)
                 && getStyleClass().contains(DEAD_CELL_STYLE_CLASS)));
     }
 
+    /**
+     *
+     */
     private void clicked() {
         patternSupplier.get().generate(cell);
     }
 
+    /**
+     *
+     */
     private void setStyleClass() {
         if (cell.isAlive()) {
             getStyleClass().remove(DEAD_CELL_STYLE_CLASS);

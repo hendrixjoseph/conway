@@ -50,18 +50,30 @@ public class BottomMenu extends HBox {
                 speedSlider, statusLabel);
     }
 
+    /**
+     * @param pattern
+     */
     public void addPattern(Pattern pattern) {
         inputChoiceBox.getItems().add(pattern);
     }
 
+    /**
+     * @param patterns
+     */
     public void addPatterns(List<Pattern> patterns) {
         inputChoiceBox.getItems().addAll(patterns);
     }
 
+    /**
+     * @return
+     */
     public Pattern getPattern() {
         return inputChoiceBox.getValue();
     }
 
+    /**
+     *
+     */
     private void pause() {
         startPauseButton.setText("Start");
         startPauseButton.setOnMouseClicked(action -> start());
@@ -71,11 +83,17 @@ public class BottomMenu extends HBox {
         running = false;
     }
 
+    /**
+     * @param speed
+     */
     private void setSpeed(double speed) {
         waitTime = 1050 - (long) (speed * 100);
         sliderLabel.setText(String.format("Speed: %.2f", speed));
     }
 
+    /**
+     *
+     */
     private void start() {
         startPauseButton.setText("Pause");
         startPauseButton.setOnMouseClicked(action -> pause());
@@ -97,11 +115,17 @@ public class BottomMenu extends HBox {
         }.start();
     }
 
+    /**
+     *
+     */
     private void tick() {
         gameGrid.tick();
         updateStatusLabel();
     }
 
+    /**
+     *
+     */
     private void updateStatusLabel() {
         statusLabel.setText("Generation: " + gameGrid.getGeneration());
     }

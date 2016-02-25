@@ -25,7 +25,6 @@ import edu.wright.hendrix11.conway.logic.Pattern;
 public class TopMenu extends MenuBar {
 
     private static final Logger LOG = Logger.getLogger(TopMenu.class.getName());
-    private static final ExtensionFilter cssExtensionFilter = new ExtensionFilter("Cascading Style Sheet", "*.css");
     private static final String rules = "1.\tAny live cell with fewer than two live neighbours dies, as if caused by " +
             "under-population.\n" +
             "2.\tAny live cell with two or three live neighbours lives on to the next generation.\n" +
@@ -34,11 +33,17 @@ public class TopMenu extends MenuBar {
     private static final ExtensionFilter textExtensionFilter = new ExtensionFilter("Text file", "*.txt");
     private Consumer<Pattern> patternConsumer;
 
+    /**
+     * @param patternConsumer
+     */
     public TopMenu(Consumer<Pattern> patternConsumer) {
         this.patternConsumer = patternConsumer;
         getMenus().addAll(generateFileMenu(), generateHelpMenu());
     }
 
+    /**
+     *
+     */
     private void addPattern() {
         try {
             FileChooser patternChooser = new FileChooser();
@@ -56,6 +61,9 @@ public class TopMenu extends MenuBar {
         }
     }
 
+    /**
+     * @return
+     */
     private Alert generateAboutDialog() {
         Alert aboutDialog = new Alert(Alert.AlertType.INFORMATION);
         aboutDialog.setTitle("About");
@@ -64,26 +72,26 @@ public class TopMenu extends MenuBar {
         return aboutDialog;
     }
 
+    /**
+     * @return
+     */
     private Menu generateFileMenu() {
         Menu fileMenu = new Menu("File");
 
         MenuItem patternItem = new MenuItem("Load pattern");
         patternItem.setOnAction(action -> addPattern());
 
-        MenuItem savePatternItem = new MenuItem("Save pattern");
-        savePatternItem.setOnAction(action -> savePattern());
-
-        MenuItem cssItem = new MenuItem("Load CSS");
-        cssItem.setOnAction(action -> loadCss());
-
         MenuItem exitItem = new MenuItem("Exit");
         exitItem.setOnAction(action -> System.exit(0));
 
-        fileMenu.getItems().addAll(patternItem, savePatternItem, cssItem, new SeparatorMenuItem(), exitItem);
+        fileMenu.getItems().addAll(patternItem, new SeparatorMenuItem(), exitItem);
 
         return fileMenu;
     }
 
+    /**
+     * @return
+     */
     private Menu generateHelpMenu() {
         Menu helpMenu = new Menu("Help");
 
@@ -92,27 +100,5 @@ public class TopMenu extends MenuBar {
         aboutItem.setOnAction(action -> generateAboutDialog().show());
 
         return helpMenu;
-    }
-
-    private void loadCss() {
-        FileChooser cssChooser = new FileChooser();
-        cssChooser.setTitle("Choose CSS...");
-        cssChooser.getExtensionFilters().add(cssExtensionFilter);
-        File file = cssChooser.showOpenDialog(null);
-
-        if (file != null) {
-
-        }
-    }
-
-    private void savePattern() {
-        FileChooser patternSaver = new FileChooser();
-        patternSaver.setTitle("Save pattern...");
-        patternSaver.getExtensionFilters().add(textExtensionFilter);
-        File file = patternSaver.showSaveDialog(null);
-
-        if (file != null) {
-
-        }
     }
 }

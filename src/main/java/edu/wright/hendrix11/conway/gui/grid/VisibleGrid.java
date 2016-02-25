@@ -13,14 +13,31 @@ import edu.wright.hendrix11.conway.logic.Pattern;
  */
 public class VisibleGrid extends GridPane {
 
+    /**
+     * @param gameGrid
+     * @param rows
+     * @param columns
+     * @param patternSupplier
+     */
     public VisibleGrid(Grid gameGrid, int rows, int columns, Supplier<Pattern> patternSupplier) {
         createCells(rows, columns, gameGrid, patternSupplier);
     }
 
+    /**
+     * @param gameGrid
+     * @param size
+     * @param patternSupplier
+     */
     public VisibleGrid(Grid gameGrid, int size, Supplier<Pattern> patternSupplier) {
         this(gameGrid, size, size, patternSupplier);
     }
 
+    /**
+     * @param rows
+     * @param columns
+     * @param gameGrid
+     * @param patternSupplier
+     */
     private void createCells(int rows, int columns, Grid gameGrid, Supplier<Pattern> patternSupplier) {
 
         Cell outerloopCell = new Cell(gameGrid);

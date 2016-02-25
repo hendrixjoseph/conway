@@ -26,10 +26,16 @@ public class Main extends Application {
 
     private static final Logger LOG = Logger.getLogger(Main.class.getName());
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
         Scene scene = new Scene(generateMainArea(), 700.0f, 700.0f);
@@ -40,6 +46,9 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    /**
+     * @return
+     */
     private VBox generateMainArea() {
         Grid gameGrid = new Grid();
 
@@ -56,6 +65,9 @@ public class Main extends Application {
         return group;
     }
 
+    /**
+     * @return
+     */
     private List<Pattern> loadPatterns() {
         URL resource = Main.class.getResource("/patterns");
 
