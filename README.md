@@ -10,3 +10,7 @@ Conway's Game of Life is a simple "zero-player" game played on an othoganal grid
 Inherit in these rules is that they all happen concurrently on an infinite grid.
 
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+
+## Screenshot
+
+![Screenshot](conway.jpg)
